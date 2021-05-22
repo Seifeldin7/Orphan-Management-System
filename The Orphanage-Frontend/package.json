@@ -1,5 +1,5 @@
 {
-  "name": "oudfrontend",
+  "name": "The Orphanage",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,6 +36,7 @@
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
+    "react-cool-tabs": "^1.1.6",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.0",
     "react-facebook-login": "^4.1.1",
@@ -45,6 +46,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-sortable-hoc": "^1.11.0",
+    "react-tabs": "^3.2.2",
+    "react-tabs-navigation": "^0.4.4",
     "react-test-renderer": "^16.13.1",
     "save": "^2.4.0",
     "socket.io": "^2.3.0",

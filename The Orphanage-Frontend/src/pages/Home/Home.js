@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { base } from "./../../config/environment";
 import axios from "axios";
 import { config, isLoggedIn } from "./../../utils/auth";
+import MainContent from "../../components/MainContent/MainContent";
 
 class Home extends Component {
 
@@ -25,6 +26,7 @@ class Home extends Component {
         {/* <Navbar isLoggedIn={isLoggedIn()}
           data-testid="navbar"
         /> */}
+        <MainContent />
       </div>
     );
   }

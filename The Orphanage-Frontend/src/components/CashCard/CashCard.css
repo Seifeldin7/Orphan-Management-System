@@ -1,0 +1,30 @@
+.cash-card {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    width: auto;
+    margin-bottom: 5px;
+    padding: 0.55rem 0.625rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-family: "openSansBold";
+    margin-right: 1.5%;
+    background-color: #fff;
+    color: #333;
+}
+
+.cash-card:hover {
+    background-color: rgb(224, 218, 218);
+}
