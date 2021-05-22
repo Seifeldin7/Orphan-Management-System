@@ -88,16 +88,16 @@
   font-weight: bold;
 }
 .media-body {
-  margin-top: 0px;
+  margin-top: 45px;
 }
 
 .sidebar-icons {
   margin-right: 10px;
-  color: #141E2A;
+  color: #f0a91a;
 }
 
 .bg-dark-hover:hover {
-  background-color: #242427 !important;
+  background-color: #f0a91a !important;
   border-radius: 0.2em;
 }
 .bg-dark-hover:hover.sidebar-icons {
@@ -125,7 +125,7 @@
 .active-left-sidebar-ele:hover,
 .active-left-sidebar-ele:focus,
 .active-left-sidebar-ele:active {
-  border-left: 2px solid #141E2A;
+  border-left: 2px solid #f0a91a;
 }
 
 .nav-item {

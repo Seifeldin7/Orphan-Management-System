@@ -3,6 +3,7 @@ import "./MainContent.css";
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import DonateMoney from "../DonateMoney/DonateMoney";
+import DonateItems from "../DonateItems/DonateItems";
 
 
 class MainContent extends Component {
@@ -23,11 +24,10 @@ class MainContent extends Component {
             <DonateMoney />
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <DonateItems />
           </TabPanel>
         </Tabs>
       </div>
-
     );
   }
 }

@@ -62,53 +62,10 @@ class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-light fixed-top oud-nav"
+          className="navbar navbar-expand-lg  fixed-top oud-nav"
           data-testid="home-nav"
         >
-          <form
-            className="form-inline"
-            onSubmit={this.props.handleSubmit}
-            data-testid="left-part"
-          >
-            <div
-              className="back-forward nav-back-forward"
-              data-testid="nav-back-forward"
-            >
-              <div
-                className="navbar-brand"
-                onClick={this.handleGoBack}
-                data-testid="back-switch"
-              >
-                <i className="fa fa-angle-left fa-lg left-arrow"
-                  data-testid="left-arrow-icon"
-                ></i>
-              </div>
-              <div
-                className="navbar-brand"
-                onClick={this.handleGoForward}
-                data-testid="forward-switch">
-                <i
-                  className="fa fa-angle-right fa-lg right-arrow"
-                  data-testid="right-arrow-icon"
-                ></i>
-              </div>
-            </div>
-            <input
-              type="search"
-              className="search-input empty"
-              id="iconified"
-              ref={(input) => { this.nameInput = input; }}
-              placeholder="&#xF002; Search for Artists, Songs"
-              aria-label="Search"
-              onClick={() => this.handleClickOnSearch('search')}
-              onChange={this.props.handleInput}
-              data-testid="search-input"
-              value={this.props.value}
-              autoComplete="off"
-              onKeyUp={this.props.onKeyUp}
-              onKeyDown={this.props.onKeyDown}
-            />
-          </form>
+         
           <button
             className="navbar-toggler"
             type="button"

@@ -23,9 +23,9 @@ class Home extends Component {
         <Sidebar
           data-testid="sidebar"
         />
-        {/* <Navbar isLoggedIn={isLoggedIn()}
+        <Navbar isLoggedIn={isLoggedIn()}
           data-testid="navbar"
-        /> */}
+        />
         <MainContent />
       </div>
     );

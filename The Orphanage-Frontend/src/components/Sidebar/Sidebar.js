@@ -66,7 +66,7 @@ class Sidebar extends Component {
           <div className="py-4 px-3" data-testid="oud-logo-component">
             <Link to="/welcome" data-testid="oud-logo-link">
               <div className="media-body">
-                <h2 className="font-weight-white mb-0">
+                <h2 className="mb-0">
                   <img
                     src={charityIcon}
                     width="100%"

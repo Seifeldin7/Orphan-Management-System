@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  left: 223px;
   z-index: 2;
+  background-color: #03bd66;
 }
 .fa-angle-left:before {
   margin-right: 20px;
