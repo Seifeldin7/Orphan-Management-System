@@ -6,6 +6,15 @@
     filter: brightness(70%);
 }
 
+.item-image-border {
+    height: 12em;
+    width: 12em;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: brightness(70%);
+    border: 5px solid #f0a91a;
+}
+
 .item-image:hover {
     -webkit-text-size-adjust: 100%;
     transform: scale(1.1);

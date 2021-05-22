@@ -9,20 +9,27 @@ class DonateItems extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            donationItems: [foodImage, clothesImage, furnImage, booksImage]
+            donationItems: [foodImage, clothesImage, furnImage, booksImage],
+            clicked: [false, false, false, false]
+
         };
     }
     render() {
         return (
             <div className="container">
-                { this.state.donationItems.map((item) => {
+                { this.state.donationItems.map((item, index) => {
                     return (
-                        <div className="item">
+                        <div className="item" key={index} onClick={() => {
+                            let clicked_new = [...this.state.clicked];
+                            clicked_new[index] = !clicked_new[index];
+                            this.setState({ clicked: clicked_new })
+                        }
+                        }>
                             <img
                                 src={item}
                                 alt="item"
                                 data-testid="oud-logo-img"
-                                className="item-image"
+                                className={(!this.state.clicked[index]) ? "item-image" : "item-image-border"}
                             />
                             <p className="item-name">Food</p>
                         </div>

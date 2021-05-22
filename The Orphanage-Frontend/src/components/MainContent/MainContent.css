@@ -42,8 +42,8 @@
   
 .react-tabs__tab--selected {
     background: transparent;
-    border-bottom: 2px Solid green;
-    color: green;
+    border-bottom: 2px Solid #f0a91a;
+    color: black;
     border-radius: 5px 5px 0 0;
     font-weight: bold;
 }
@@ -80,4 +80,14 @@
 .react-tabs__tab-panel--selected {
     display: block;
 }
-  
+
+
+.donate-btn {
+    width: 100%;
+    background-color: #03BD66;
+    color: white;
+    margin-top: 3vh;
+    padding: 0.4rem;
+    border-radius: 10px;
+    border-color: transparent;
+}

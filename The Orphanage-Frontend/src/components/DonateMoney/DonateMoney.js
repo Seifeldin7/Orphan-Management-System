@@ -22,9 +22,9 @@ class DonateMoney extends Component {
                 <div className="amounts">
                     {this.renderDonationAmounts()}
                 </div>
-                <div class="input-group mb-3" id="amount">
-                    <span class="input-group-text" id="basic-addon1">LE</span>
-                    <input type="number" class="form-control"
+                <div className="input-group mb-3" id="amount">
+                    <span className="input-group-text" id="basic-addon1">LE</span>
+                    <input type="number" className="form-control"
                         placeholder="Other Amount" aria-label="amount" aria-describedby="basic-addon1" min="5" max="10000">
 
                     </input>

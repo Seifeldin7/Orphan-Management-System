@@ -9,7 +9,8 @@ import DonateItems from "../DonateItems/DonateItems";
 class MainContent extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
   render() {
     return (
@@ -25,6 +26,9 @@ class MainContent extends Component {
           </TabPanel>
           <TabPanel>
             <DonateItems />
+            <button className="donate-btn">
+              Donate
+            </button>
           </TabPanel>
         </Tabs>
       </div>
