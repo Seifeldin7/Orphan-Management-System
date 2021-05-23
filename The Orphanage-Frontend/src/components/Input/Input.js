@@ -10,10 +10,10 @@ class Input extends Component {
     }
     render() {
         return (
-            <div className="input-group mb-3">
+            <div className="input-group mb-3 input-display">
                 <label for="exampleFormControlInput1" class="form-label">{this.props.label}</label>
                 <input type={this.props.type} className="form-input"
-                    placeholder={this.props.placeholder}>
+                    placeholder={this.props.placeholder} min={this.props.min} max={this.props.max}>
                 </input>
             </div>
         );

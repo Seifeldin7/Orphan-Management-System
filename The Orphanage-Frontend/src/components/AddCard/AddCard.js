@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./AddCard.css";
 import { Container, Form, Row, Col } from 'react-bootstrap';
-
+import Button from '../Button/Button';
 import Input from "../Input/Input";
 
 
@@ -18,20 +18,24 @@ class AddCard extends Component {
                     <Col sm={{ span: 6, offset: 3 }}>
                         <Form className="card-container">
                             <Input type="text" label="Credit Card Number" placeholder="xxxx xxxx xxxx xxxx" />
-                            <Input type="text" label="Phone" placeholder="Phone Number" />
-                            <Input type="text" label="National Id" placeholder="National ID" />
+                            <Row>
+                                <Col>
+                                    <Input type="text" label="Expiry" placeholder="12/24" />
+                                </Col>
+                                <Col>
+                                    <Input type="number" label="CVV" placeholder="XXX" min={"100"} max={"999"}/>
+                                </Col>
+                            </Row>
                         </Form>
                     </Col>
 
                 </Row>
                 <Row>
-                    <Col>
-                        <button className="add-card-btn">
-                Add Card
-            </button>
-                        <button className="add-card-btn">
-                Cancel
-            </button>
+                    <Col sm={{ span: 6, offset: 3 }}>
+                        <Button title="Add Card" style={{ marginRight: 10 }} />
+                        <Button title="Cancel" style={{
+                            backgroundColor: 'red',
+                        }} />
                     </Col>
 
                 </Row>

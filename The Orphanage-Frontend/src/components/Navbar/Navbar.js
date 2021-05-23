@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./Navbar.css";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { BeforeLogin } from "./BeforeLogin/BeforeLogin"
 import { AfterLogin } from "./AfterLogin/AfterLogin"
 import { config } from "./../../utils/auth"
 import { base } from "./../../config/environment"
 import axios from "axios"
-
+import logoIcon from '../../assets/logo.png';
 class Navbar extends Component {
 
   constructor(props) {
@@ -65,7 +65,7 @@ class Navbar extends Component {
           className="navbar navbar-expand-lg  fixed-top oud-nav"
           data-testid="home-nav"
         >
-         
+
           <button
             className="navbar-toggler"
             type="button"
@@ -77,9 +77,29 @@ class Navbar extends Component {
             data-testid="toggle-btn"
 
           >
-            <span className="navbar-toggler-icon toggler"></span>
+            <span className="navbar-toggler-icon toggler">
+              <i className="fas fa-bars" style={{ color: '#fff', fontSsize: 28 }}></i>
+            </span>
           </button>
-
+          <div
+            className="collapse navbar-collapse"
+          >
+            <Link
+              to="/"
+              className="upgrade"
+            >
+              <ul className="navbar-nav mr-auto home">
+                <img
+                  src={logoIcon}
+                  width="60"
+                  height="60"
+                  alt="OMS"
+                  className="mr-2"
+                />
+                <span className="navbar-nav ml-auto">Home</span>
+              </ul>
+            </Link>
+          </div>
           <div
             className="collapse navbar-collapse login-signup"
             id="navbarSupportedContent"

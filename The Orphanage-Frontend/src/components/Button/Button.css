@@ -1,0 +1,11 @@
+.generic-btn {
+    background-color: #03BD66;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+.generic-btn:hover {
+    background-color: #16a160;
+}

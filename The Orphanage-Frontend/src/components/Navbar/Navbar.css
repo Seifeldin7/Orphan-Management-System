@@ -88,9 +88,7 @@ input.empty {
     margin-top: -50px;
     margin-bottom: 10px;
   }
-  .navbar-toggler {
-    width: 100% !important;
-  }
+
   .form-inline {
     width: 100%;
   }
@@ -104,11 +102,18 @@ input.empty {
 .signup,
 .upgrade {
   color: #fff;
+  font-size: 1.15rem;
 }
 .signin:hover,
 .signup:hover,
 .upgrade:hover {
   color: #f0a91a;
+  text-decoration: none;
+}
+
+.home {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 993px) {
