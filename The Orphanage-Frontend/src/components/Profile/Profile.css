@@ -1,0 +1,46 @@
+.form-container {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.tab-center {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs-contain {
+    margin-top: 10vh;
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: 70px 0;
+}
+  
+.react-tabs__tab {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: black;
+    width: 50%;
+    font-size: 1.4em;
+}
+  
+.tabs2 {
+    width: 33.333333%;
+}
+
+.react-tabs__tab--selected {
+    background: transparent;
+    border-bottom: 2px Solid #f0a91a;
+    color: black;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}

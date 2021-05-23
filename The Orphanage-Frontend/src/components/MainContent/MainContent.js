@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./MainContent.css";
-
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import DonateMoney from "../DonateMoney/DonateMoney";
 import DonateItems from "../DonateItems/DonateItems";
@@ -26,9 +25,6 @@ class MainContent extends Component {
           </TabPanel>
           <TabPanel>
             <DonateItems />
-            <button className="donate-btn">
-              Donate
-            </button>
           </TabPanel>
         </Tabs>
       </div>

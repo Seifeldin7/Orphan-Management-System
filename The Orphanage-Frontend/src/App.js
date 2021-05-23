@@ -7,12 +7,13 @@ import {
   useParams
 } from "react-router-dom";
 import { base } from "./config/environment";
-import Home  from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import { createBrowserHistory } from "history";
 import firebase from "./firebase";
 import axios from "axios";
 import { config } from "./utils/auth";
 import "./App.css";
+import Profile from "./components/Profile/Profile";
 
 let history = createBrowserHistory();
 
@@ -41,7 +42,9 @@ class App extends Component {
             <Route exact path="/genre/:genreName">
               <SeeAll />
             </Route> */}
-
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
           </Switch>
         </div>
       </Router>

@@ -10,10 +10,7 @@ export class AfterLogin extends Component {
 
     this.state = { privateSession: false };
   }
-  /**
-   * author: mahboub
-   * sets the state {privateSession} from axios
-   */
+
   componentDidMount() {
     axios
       .get("https://oud-zerobase.me/api/v1/me", config)
@@ -27,10 +24,7 @@ export class AfterLogin extends Component {
   handleLogOut = e => {
     localStorage.removeItem("accessToken");
   };
-  /**
-   * author: mahboub
-   * change the private session to be inverse the current value on click
-   */
+
   handlePrivateSession = event => {
     axios
       .put(
@@ -50,7 +44,7 @@ export class AfterLogin extends Component {
     const userInformation = this.props.userInfo ? this.props.userInfo : null;
     const subPath = base === prodUrl ? subUrl : "";
     let profileImage =
-        "https://oud-zerobase.me/api/uploads/users/default-Profile.svg",
+      "https://oud-zerobase.me/api/uploads/users/default-Profile.svg",
       userId = "",
       displayName = "";
     if (userInformation) {
@@ -64,7 +58,7 @@ export class AfterLogin extends Component {
     return (
       <form className="form-inline my-2 my-lg-0" data-testid="after-login">
         <Link
-          to="/goPremium"
+          to="/"
           className="signup-signin-link upgrade"
           data-testid="upgrade-link"
         >
@@ -73,65 +67,22 @@ export class AfterLogin extends Component {
             type="submit"
             data-testid="upgrade-btn"
           >
-            UPGRADE
+            Logout
           </button>
         </Link>
-        <div className="dropdown show droppy" data-testid="dropdown-wrapper">
-          <a
-            href="https://example.com"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            data-testid="profile-dropdown-link"
+        <Link
+          to="/profile"
+          className="signup-signin-link upgrade"
+          data-testid="upgrade-link"
+        >
+          <button
+            className="btn oud-btn my-2 my-sm-0 mr-3 upgrade"
+            type="submit"
+            data-testid="upgrade-btn"
           >
-            <img
-              src={`${profileImage}`}
-              className="profile"
-              alt="user"
-              data-testid="profile-img"
-            />
-          </a>
-          <div
-            className="dropdown-menu dropdown-me"
-            aria-labelledby="dropdownMenuLink"
-            data-testid="profile-dropdown"
-          >
-            <Link
-              className="dropdown-item element"
-              to="/account/accountOverview"
-              data-testid="account-dropdown-element"
-            >
-              Account
-            </Link>
-            <Link
-              className="dropdown-item element"
-              onClick={this.handleLogOut}
-              to="/welcome"
-              data-testid="logout-dropdown-element"
-            >
-              Log out
-            </Link>
-            <p
-              className="dropdown-item element"
-              style={{ cursor: "pointer", margin: "0px" }}
-              onClick={this.handlePrivateSession}
-            >
-              Private Session
-            </p>
-          </div>
-        </div>
-        <a href={`/profile/${userId}`}>
-          <h1 className="username" data-testid="username">
-            {displayName}
-          </h1>
-        </a>
-        {this.state.privateSession && (
-          <i
-            class="fas fa-user-shield"
-            style={{ padding: "5px", color: "#FFCE00" }}
-          ></i>
-        )}
+            Profile
+          </button>
+        </Link>
       </form>
     );
   }

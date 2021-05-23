@@ -1,0 +1,13 @@
+.add-card-btn {
+    float: left;
+    background-color: #03BD66;
+    color: white;
+    margin-top: 3vh;
+    padding: 0.4rem;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+.add-card-btn:hover {
+    background-color: #16a160;
+}
