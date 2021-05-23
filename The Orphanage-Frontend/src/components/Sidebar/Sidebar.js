@@ -17,7 +17,7 @@ class Sidebar extends Component {
     super(props);
 
     this.state = {
-      role: "orphan"
+      role: "donor"
     };
 
   }

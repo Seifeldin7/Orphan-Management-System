@@ -19,7 +19,6 @@ class MainContent extends Component {
             <Tab>Donate Money</Tab>
             <Tab>Donate Items</Tab>
           </TabList>
-
           <TabPanel>
             <DonateMoney />
           </TabPanel>

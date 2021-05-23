@@ -14,6 +14,7 @@ import axios from "axios";
 import { config } from "./utils/auth";
 import "./App.css";
 import Profile from "./components/Profile/Profile";
+import DonationHistory from "./components/DonationsHistory/DonationHistory";
 
 let history = createBrowserHistory();
 
@@ -44,6 +45,9 @@ class App extends Component {
             </Route> */}
             <Route exact path="/profile">
               <Profile />
+            </Route>
+            <Route exact path="/history">
+              <DonationHistory />
             </Route>
           </Switch>
         </div>

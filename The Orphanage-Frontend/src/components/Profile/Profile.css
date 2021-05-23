@@ -13,12 +13,18 @@
 
 .tabs-contain {
     margin-top: 10vh;
-    width: 80%;
     display: block;
     margin: auto;
     padding: 70px 0;
+    margin-left: 19%;
+    
 }
-  
+@media (max-width: 700px) {
+    .tabs-contain {
+      margin-left: 0;
+    }
+}
+
 .react-tabs__tab {
     display: inline-block;
     border: 1px solid transparent;
