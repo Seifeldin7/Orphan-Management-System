@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
 
-Route::apiResource('money_donations', 'MoneyDonationController');
-Route::post('/money-donation', 'MoneyDonationController@store');
+Route::apiResource('money-donation', 'MoneyDonationController');
+Route::apiResource('item-donation', 'ItemDonationController');

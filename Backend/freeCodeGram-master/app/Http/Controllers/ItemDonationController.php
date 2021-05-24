@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ItemDonation;
+use App\Http\Resources\ItemDonationResource;
 
 class ItemDonationController extends Controller
 {
+    // public function __construct()
+    // {
+    //   $this->middleware('auth:api');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,7 @@ class ItemDonationController extends Controller
      */
     public function index()
     {
-        //
+        return ItemDonation::all();
     }
 
     /**
@@ -24,7 +31,15 @@ class ItemDonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+            $item_donation = ItemDonation::create([
+                'user_id' => auth()->user()->id,
+                'type' => $request->type,
+                'delivery_method' => $request->delivery_method,
+                'scheduled_date' => $request->scheduled_date
+            ]);
+
+        return new ItemDonationResource($item_donation);
     }
 
     /**
@@ -35,7 +50,6 @@ class ItemDonationController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
