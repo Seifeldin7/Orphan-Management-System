@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { base, subUrl, prodUrl } from "./../../../config/environment";
+import { baseUrl, prodUrl } from "./../../../config/environment";
 import axios from "axios";
 import { config } from "../../../utils/auth";
 
@@ -42,7 +42,7 @@ export class AfterLogin extends Component {
   };
   render() {
     const userInformation = this.props.userInfo ? this.props.userInfo : null;
-    const subPath = base === prodUrl ? subUrl : "";
+    const subPath = baseUrl;
     let profileImage =
       "https://oud-zerobase.me/api/uploads/users/default-Profile.svg",
       userId = "",

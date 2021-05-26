@@ -10,7 +10,6 @@ import {
 } from "./SidebarElements";
 import { getRole } from "./../../utils/auth";
 
-
 class Sidebar extends Component {
 
   constructor(props) {

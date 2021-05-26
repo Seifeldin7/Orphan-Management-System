@@ -36,7 +36,7 @@ const donorSidebarElements = [
     name: "Donate"
   },
   {
-    route: "/history",
+    route: "history",
     iconClasses: "fas fa-list mr-3  fa-lg sidebar-icons",
     name: "Donations History"
   },

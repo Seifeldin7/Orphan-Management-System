@@ -1,13 +1,15 @@
 import axios from "axios";
 import { isLoggedIn } from "./../utils/auth";
+import { baseUrl } from "../config/environment";
 const config = {
   headers: {
-    authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTA3ZGIwYTA2NDVmNDU4MTYwNzYwNiIsImlhdCI6MTU5MTYyMTQxOSwiZXhwIjoxNTk0MjEzNDE5fQ.fj3N3Pc89Pf_xlt7fGmXw1SINTecUB4-y3pihAAPjC8`,
+    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjAzODMxMiwiZXhwIjoxNjIyMDQxOTEyLCJuYmYiOjE2MjIwMzgzMTIsImp0aSI6ImF4M1MzMGs2dkdzRjN3TDMiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.oqkw0zZ6n1ks7cNhieSXPdDP2QyDFZS62u5VV2OD8gg`,
     "Access-Control-Allow-Origin": "*"
   }
 };
 const getRequest = endpoint => {
-  return axios.get(endpoint, config);
+  let fullUrl = baseUrl + endpoint;
+  return axios.get(fullUrl, config);
 };
 /**
  * Axios DELETE request
@@ -16,6 +18,7 @@ const getRequest = endpoint => {
  * @returns {object}
  */
 const deleteRequest = endpoint => {
+  let fullUrl = baseUrl + endpoint;
   return axios.delete(endpoint, config);
 };
 /**
@@ -26,6 +29,7 @@ const deleteRequest = endpoint => {
  * @returns {object}
  */
 const putRequest = (endpoint, body = {}) => {
+  let fullUrl = baseUrl + endpoint;
   return axios.put(endpoint, body, config);
 };
 /**
@@ -36,6 +40,7 @@ const putRequest = (endpoint, body = {}) => {
  * @returns {object}
  */
 const postRequest = (endpoint, body = {}) => {
+  let fullUrl = baseUrl + endpoint;
   return axios.post(endpoint, body, config);
 };
 /**
@@ -46,6 +51,7 @@ const postRequest = (endpoint, body = {}) => {
  * @returns {object}
  */
 const patchRequest = (endpoint, body = {}) => {
+  let fullUrl = baseUrl + endpoint;
   return axios.patch(endpoint, body, config);
 };
 

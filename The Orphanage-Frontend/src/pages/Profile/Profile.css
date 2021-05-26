@@ -1,42 +1,53 @@
-.profile-user {
-  margin-left: 14rem;
-  margin-top: 45px;
-  width: 73%;
-  padding-bottom: 100px;
-  background-color: #111113;
-}
-
-.DummyActivityBar {
-  margin-top: 66px;
-  width: 18%;
-  z-index: 1;
-  height: 100vh;
-  position: fixed;
-  margin-left: 83%;
-  background-color: #000000;
-}
-/*this class should be for app*/
-.dummyParent {
+.form-container {
+  margin-top: 10vh;
   display: flex;
-  flex-flow: nowrap row;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 }
 
-@media (max-width: 1200px) {
-  .DummyActivityBar {
-    width: 0px;
-    visibility: hidden;
-    z-index: 0;
-  }
-  .profile-user {
-    width: 100%;
+.tab-center {
+  display: flex;
+  justify-content: center;
+}
 
-    margin-right: 0;
-  }
+.tabs-contain {
+  margin-top: 10vh;
+  display: block;
+  margin: auto;
+  padding: 70px 0;
+  margin-left: 19%;
+  
 }
 @media (max-width: 700px) {
-  .profile-user {
-    width: 100%;
+  .tabs-contain {
     margin-left: 0;
-    margin-right: 0;
   }
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: black;
+  width: 50%;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.tabs2 {
+  width: 33.333333%;
+}
+
+.react-tabs__tab--selected {
+  background: transparent;
+  border-bottom: 2px Solid #f0a91a;
+  color: black;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
 }

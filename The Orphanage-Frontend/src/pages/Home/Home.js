@@ -1,37 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Navbar from "../../components/Navbar/Navbar";
 import { base } from "./../../config/environment";
 import axios from "axios";
 import { config, isLoggedIn } from "./../../utils/auth";
-import MainContent from "../../components/MainContent/MainContent";
-import Profile from "../../components/Profile/Profile";
-import DonationHistory from "../../components/DonationsHistory/DonationHistory";
+import MainContent from "../Donate/Donate";
+import { Route, Switch, useLocation, BrowserRouter as Router, useRouteMatch } from "react-router-dom";
 
-class Home extends Component {
+const Home = () => {
+  const { path, url } = useRouteMatch();
+  return (
+    <div>
+      <Sidebar
+        data-testid="sidebar"
+      />
+      {/* <DonationHistory /> */}
+    </div>
+  );
 
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-
-  render() {
-    return (
-      <div>
-        <Sidebar
-          data-testid="sidebar"
-        />
-        <Navbar isLoggedIn={isLoggedIn()}
-          data-testid="navbar"
-        />
-        <DonationHistory />
-      </div>
-    );
-  }
 }
 
 export default Home;

@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { getRequest } from "./requester";
-import { base } from "./../config/environment";
+import { baseUrl } from "./../config/environment";
 
 function getToken() {
   return localStorage.getItem("accessToken");
@@ -25,7 +25,7 @@ function isLoggedIn() {
 }
 
 function getRole() {
-  return getRequest(`${base}/me`)
+  return getRequest(`${baseUrl}/me`)
     .then(response => {
       return response.data.role;
     })
