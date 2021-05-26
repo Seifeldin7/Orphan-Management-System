@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
-import MoneyDonationReducer from "../store/reducers/money-donation";
+import MoneyDonationReducer from "./reducers/moneyDonation";
 
 
 const rootReducer = combineReducers({

@@ -3,7 +3,7 @@ import { isLoggedIn } from "./../utils/auth";
 import { baseUrl } from "../config/environment";
 const config = {
   headers: {
-    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjAzODMxMiwiZXhwIjoxNjIyMDQxOTEyLCJuYmYiOjE2MjIwMzgzMTIsImp0aSI6ImF4M1MzMGs2dkdzRjN3TDMiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.oqkw0zZ6n1ks7cNhieSXPdDP2QyDFZS62u5VV2OD8gg`,
+    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjA0NDQ2NSwiZXhwIjoxNjIyMDQ4MDY1LCJuYmYiOjE2MjIwNDQ0NjUsImp0aSI6Imw2aldyZ2ZmOHZPT3NRRkMiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.kROm9QrfqChxKjFZ3CJv3xu8ziAH8zTj3N1znGJ9m5M`,
     "Access-Control-Allow-Origin": "*"
   }
 };
@@ -19,7 +19,7 @@ const getRequest = endpoint => {
  */
 const deleteRequest = endpoint => {
   let fullUrl = baseUrl + endpoint;
-  return axios.delete(endpoint, config);
+  return axios.delete(fullUrl, config);
 };
 /**
  * Axios PUT request
@@ -30,7 +30,7 @@ const deleteRequest = endpoint => {
  */
 const putRequest = (endpoint, body = {}) => {
   let fullUrl = baseUrl + endpoint;
-  return axios.put(endpoint, body, config);
+  return axios.put(fullUrl, body, config);
 };
 /**
  * Axios POST request
@@ -40,8 +40,8 @@ const putRequest = (endpoint, body = {}) => {
  * @returns {object}
  */
 const postRequest = (endpoint, body = {}) => {
-  let fullUrl = baseUrl + endpoint;
-  return axios.post(endpoint, body, config);
+  let fullUrl = "http://localhost:8000" + endpoint;
+  return axios.post(fullUrl, body, config);
 };
 /**
  * Axios PATCH request
@@ -52,7 +52,7 @@ const postRequest = (endpoint, body = {}) => {
  */
 const patchRequest = (endpoint, body = {}) => {
   let fullUrl = baseUrl + endpoint;
-  return axios.patch(endpoint, body, config);
+  return axios.patch(fullUrl, body, config);
 };
 
 export { getRequest, deleteRequest, putRequest, postRequest, patchRequest };

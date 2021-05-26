@@ -1,2 +1,0 @@
-export const DONATE_ITEM = "DONATE_ITEM";
-export const SHOW_ITEM_DONATIONS = "SHOW_ITEM_DONATIONS";

@@ -22,7 +22,10 @@ class Profile extends Component {
         <Sidebar
           data-testid="sidebar"
         />
-        <Tabs className="tabs-contain">
+        <div className="tabs-container">
+
+        
+        <Tabs className="tabs tabs-contain">
           <TabList>
             <Tab className={tabClass}>Personal Information</Tab>
             <Tab className={tabClass}>Payment Details</Tab>
@@ -44,6 +47,7 @@ class Profile extends Component {
             <LocationDetails />
           </TabPanel>
         </Tabs>
+        </div>
       </div>
     );
   }

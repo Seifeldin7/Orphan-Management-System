@@ -12,11 +12,8 @@
 }
 
 .tabs-contain {
-  margin-top: 10vh;
-  display: block;
-  margin: auto;
-  padding: 70px 0;
-  margin-left: 19%;
+
+  width: 60%;
   
 }
 @media (max-width: 700px) {

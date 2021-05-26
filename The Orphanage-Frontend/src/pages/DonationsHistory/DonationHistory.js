@@ -4,8 +4,7 @@ import { Table } from '../../components/Table/Table';
 import makeData from './makeData';
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { showMoneyDonations } from "../../store/actions/money-donation";
-import * as actions from '../../store/actions/money-donation';
+import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 
 class DonationHistory extends Component {
@@ -61,7 +60,6 @@ class DonationHistory extends Component {
 
 }
 
-//export default DonationHistory;
 const mapStateToProps = state => {
     return {
 

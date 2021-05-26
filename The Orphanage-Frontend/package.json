@@ -25,7 +25,6 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "firebase": "^7.15.0",
     "framer-motion": "^4.1.17",
     "howler": "^2.1.3",
     "iso-3166-country-list": "^0.1.2",

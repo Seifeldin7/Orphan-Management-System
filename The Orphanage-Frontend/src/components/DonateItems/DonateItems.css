@@ -52,3 +52,23 @@
     display: flex;
     justify-content: space-around;
 }
+
+.calender-con {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #03bd66;
+    border-radius: 20px;
+}
+
+.calender {
+    border: 2px solid transparent;
+    
+    text-align: center;
+}
+
+.calender:hover {
+    cursor: pointer;
+}
+

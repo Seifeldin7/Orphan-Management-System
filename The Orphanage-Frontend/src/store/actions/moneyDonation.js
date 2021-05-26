@@ -1,6 +1,6 @@
 import { ThunkDispatch } from "redux-thunk";
 import * as Requester from "../../utils/requester";
-import * as actionTypes from '../types/money-donation';
+import * as actionTypes from '../types/moneyDonation';
 
 export const showMoneyDonations = () => {
     return async (
