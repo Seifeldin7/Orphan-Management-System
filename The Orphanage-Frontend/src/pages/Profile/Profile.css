@@ -12,10 +12,9 @@
 }
 
 .tabs-contain {
-
   width: 60%;
-  
 }
+
 @media (max-width: 700px) {
   .tabs-contain {
     margin-left: 0;

@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import { base } from "./config/environment";
 import Home from "./pages/Home/Home";
-import firebase from "./firebase";
 import axios from "axios";
 import { config } from "./utils/auth";
 import "./App.css";
@@ -20,6 +19,7 @@ import Donate from "./pages/Donate/Donate";
 
 import { Provider } from "react-redux";
 import { ConfigureStore } from "./store/store";
+import OrganizationDetails from "./pages/OrganizationDetails/OrganizationDetails";
 
 const store = ConfigureStore();
 
@@ -54,6 +54,9 @@ class App extends Component {
               </Route>
               <Route exact path="/donate">
                 <Donate />
+              </Route>
+              <Route exact path="/organization">
+                <OrganizationDetails />
               </Route>
             </Switch>
           </div>

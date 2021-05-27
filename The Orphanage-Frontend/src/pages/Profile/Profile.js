@@ -23,30 +23,28 @@ class Profile extends Component {
           data-testid="sidebar"
         />
         <div className="tabs-container">
+          <Tabs className="tabs tabs-contain">
+            <TabList>
+              <Tab className={tabClass}>Personal Information</Tab>
+              <Tab className={tabClass}>Payment Details</Tab>
+              <Tab className={tabClass}>Location</Tab>
+            </TabList>
 
-        
-        <Tabs className="tabs tabs-contain">
-          <TabList>
-            <Tab className={tabClass}>Personal Information</Tab>
-            <Tab className={tabClass}>Payment Details</Tab>
-            <Tab className={tabClass}>Location</Tab>
-          </TabList>
-
-          <TabPanel className="tab-center">
-            <Form className="form-container">
-              <Input type="text" label="Name" />
-              <Input type="text" label="Email" />
-              <Input type="text" label="Phone" />
-              <Input type="text" label="National Id" />
-            </Form>
-          </TabPanel>
-          <TabPanel className="tab-center">
-            <PaymentDetails />
-          </TabPanel>
-          <TabPanel>
-            <LocationDetails />
-          </TabPanel>
-        </Tabs>
+            <TabPanel className="tab-center">
+              <Form className="form-container">
+                <Input type="text" label="Name" />
+                <Input type="text" label="Email" />
+                <Input type="text" label="Phone" />
+                <Input type="text" label="National Id" />
+              </Form>
+            </TabPanel>
+            <TabPanel className="tab-center">
+              <PaymentDetails />
+            </TabPanel>
+            <TabPanel>
+              <LocationDetails />
+            </TabPanel>
+          </Tabs>
         </div>
       </div>
     );

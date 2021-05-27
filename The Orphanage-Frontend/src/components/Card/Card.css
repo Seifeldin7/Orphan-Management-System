@@ -1,0 +1,15 @@
+.card {
+    max-width: 70vw;
+}
+
+.card-actions {
+    justify-content: flex-end;
+}
+
+.card-btn {
+    color: #03bd66;
+}
+
+.card-btn:hover {
+    color: gold;
+}
