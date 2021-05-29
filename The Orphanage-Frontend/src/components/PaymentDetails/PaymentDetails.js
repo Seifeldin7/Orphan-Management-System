@@ -13,10 +13,6 @@ class PaymentDetails extends Component {
     render() {
         return (
             <React.Fragment >
-                {/* <button className="add-card-btn">
-                    <i className="fa fa-plus mr-3 fa-lg"></i>
-                Add Payment Method
-            </button> */}
                 <AddCard />
             </React.Fragment>
 

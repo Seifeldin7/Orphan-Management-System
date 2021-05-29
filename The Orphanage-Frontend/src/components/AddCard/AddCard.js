@@ -83,7 +83,9 @@ class AddCard extends Component {
                             <Col >
                                 <Button title="Add Card" style={{ marginRight: 10 }} />
                                 <Button title="Cancel" style={{
-                                    backgroundColor: 'red',
+                                    backgroundColor: 'white',
+                                    border: '1px solid green',
+                                    color: 'green'
                                 }} />
                             </Col>
 

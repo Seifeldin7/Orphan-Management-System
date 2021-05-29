@@ -6,11 +6,6 @@
   width: 80%;
 }
 
-.tab-center {
-  display: flex;
-  justify-content: center;
-}
-
 .tabs-contain {
   width: 60%;
 }
@@ -21,7 +16,7 @@
   }
 }
 
-.react-tabs__tab {
+.tab-profile {
   display: inline-block;
   border: 1px solid transparent;
   border-bottom: none;
@@ -31,13 +26,9 @@
   padding: 6px 12px;
   cursor: pointer;
   color: black;
-  width: 50%;
+  width: 33%;
   font-size: 1.4em;
   text-align: center;
-}
-
-.tabs2 {
-  width: 33.333333%;
 }
 
 .react-tabs__tab--selected {

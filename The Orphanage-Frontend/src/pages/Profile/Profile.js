@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Profile.css";
 import { config, isLoggedIn } from "./../../utils/auth";
-import { Form } from 'react-bootstrap';
+import { Container, Form, Row, Col } from 'react-bootstrap';
 import Input from "../../components/Input/Input";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import PaymentDetails from '../../components/PaymentDetails/PaymentDetails';
@@ -16,37 +16,40 @@ class Profile extends Component {
     };
   }
   render() {
-    let tabClass = ["react-tabs__tab", "tabs2"].join(' ');
     return (
-      <div>
-        <Sidebar
-          data-testid="sidebar"
-        />
-        <div className="tabs-container">
-          <Tabs className="tabs tabs-contain">
-            <TabList>
-              <Tab className={tabClass}>Personal Information</Tab>
-              <Tab className={tabClass}>Payment Details</Tab>
-              <Tab className={tabClass}>Location</Tab>
-            </TabList>
+      <Container fluid>
+        <Row>
+          <Col md={2} xs={0}>
+            <Sidebar
+              data-testid="sidebar"
+            />
+          </Col>
+          <Col md={{ span: 8, offset: 1 }} xs={12} className="home-margin">
+              <Tabs >
+                <TabList>
+                  <Tab className="tab-profile">Personal Information</Tab>
+                  <Tab className="tab-profile">Payment Details</Tab>
+                  <Tab className="tab-profile">Location</Tab>
+                </TabList>
 
-            <TabPanel className="tab-center">
-              <Form className="form-container">
-                <Input type="text" label="Name" />
-                <Input type="text" label="Email" />
-                <Input type="text" label="Phone" />
-                <Input type="text" label="National Id" />
-              </Form>
-            </TabPanel>
-            <TabPanel className="tab-center">
-              <PaymentDetails />
-            </TabPanel>
-            <TabPanel>
-              <LocationDetails />
-            </TabPanel>
-          </Tabs>
-        </div>
-      </div>
+                <TabPanel>
+                  <Form className="form-container">
+                    <Input type="text" label="Name" />
+                    <Input type="text" label="Email" />
+                    <Input type="text" label="Phone" />
+                    <Input type="text" label="National Id" />
+                  </Form>
+                </TabPanel>
+                <TabPanel>
+                  <PaymentDetails />
+                </TabPanel>
+                <TabPanel>
+                  <LocationDetails />
+                </TabPanel>
+              </Tabs>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

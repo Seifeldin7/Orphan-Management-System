@@ -21,8 +21,8 @@ class Donate extends Component {
         <div className="tabs-container">
           <Tabs className="tabs">
             <TabList>
-              <Tab>Donate Money</Tab>
-              <Tab>Donate Items</Tab>
+              <Tab className="tab-donate">Donate Money</Tab>
+              <Tab className="tab-donate">Donate Items</Tab>
             </TabList>
             <TabPanel>
               <DonateMoney />
