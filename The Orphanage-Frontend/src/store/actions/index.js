@@ -6,3 +6,6 @@ export {
     donateItem,
     showItemDonations
 } from './itemDonation';
+export {
+    showOrganizations
+} from './organization';

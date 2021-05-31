@@ -8,7 +8,6 @@ export const showMoneyDonations = () => {
     ) => {
         try {
             const donations = await Requester.getRequest('/api/money-donation');
-            console.log(donations);
         } catch (errMsg) {
             console.log(`${errMsg}`);
         }
