@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +31,13 @@ Route::middleware(['api'])->group(function ($router) {
     Route::post('password/email', 'ForgotPasswordController@forgot');
     Route::post('password/reset', 'ForgotPasswordController@reset');
 
-    Route::patch('user/profile', 'UserController@updateProfile');
+    Route::apiResource('user', 'UserController');
+    Route::post('user/address', 'UserController@updateAddress');
+    Route::post('user/credit-card', 'UserController@updateCreditCard');
+    Route::post('user/info', 'UserController@updateInfo');
 
     Route::apiResource('money-donation', 'MoneyDonationController');
     Route::apiResource('item-donation', 'ItemDonationController');
+
+    Route::apiResource('organization', 'OrganizationController');
 });

@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    protected $fillable = ['user_id', 'street', 'block_number', 'additional_info', 'lat', 'long'];
+  protected $fillable = [
+    'user_id',
+    'street',
+    'governorate',
+    'block_number',
+    'additional_info',
+    'lat',
+    'long'
+  ];
 
-    public function user()
-    {
-      return $this->belongsTo(User::class);
-    }
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
 }

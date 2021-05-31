@@ -15,7 +15,6 @@ const OrganizationDetails = () => {
             type: 'Education',
             name: 'EDU',
             description: 'This project empowers the rural, underprivileged girl students studying at Isha Vidhya schools in India, by funding their education, noon meal and transportation. Girl students benefited by this project can focus on their studies without a worry about their fees, food and safe transportation to the school.',
-            location: 'Egypt',
             yearFouned: '2014',
             yearsFundraising: '3',
             projectsFunded: '0',

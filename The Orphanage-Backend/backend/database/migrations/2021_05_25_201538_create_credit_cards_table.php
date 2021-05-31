@@ -15,8 +15,8 @@ class CreateCreditCardsTable extends Migration
     {
         Schema::create('credit_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
-            $table->string('cvv');
+            $table->string('number', 16);
+            $table->string('cvv', 3);
             $table->string('expiration_date');
             $table->unsignedInteger('user_id');
             $table->timestamps();
