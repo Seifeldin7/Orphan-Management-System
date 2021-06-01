@@ -24,7 +24,7 @@ class Card extends Component {
                             component="img"
                             alt="Contemplative Reptile"
                             height="100%"
-                            image={HappyImage}
+                            image={this.props.data.image}
                             title="Contemplative Reptile"
                         />
                     </Col>
