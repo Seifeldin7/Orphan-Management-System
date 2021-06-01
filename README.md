@@ -1,6 +1,6 @@
 # Etbara3
-![Screenshot](./Screenshot/home.PNG)
-![Screenshot](./Screenshot/donateMoney.PNG)
-![Screenshot](./Screenshot/donateItems.PNG)
-![Screenshot](./Screenshot/responsive.PNG)
-![Screenshot](./Screenshot/card.PNG)
+![Screenshot](./Screenshots/home.PNG)
+![Screenshot](./Screenshots/donateMoney.PNG)
+![Screenshot](./Screenshots/donateItems.PNG)
+![Screenshot](./Screenshots/responsive.PNG)
+![Screenshot](./Screenshots/card.PNG)
