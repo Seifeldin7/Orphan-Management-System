@@ -1,51 +1,61 @@
 import React from "react";
-import BTable from 'react-bootstrap/Table';
-import { useTable } from 'react-table'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import MaUTable from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import "./Table.css";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: '#03BD66',
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+    
+  },
+}))(TableCell);
 
-export const Table = ({ columns, data }) => {
-    const { getTableProps, headerGroups, rows, prepareRow } = useTable({
-        columns,
-        data,
-    })
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
 
-    // Render the UI for your table
-    return (
-        <MaUTable {...getTableProps()} className="table">
-            <TableHead>
-                {headerGroups.map(headerGroup => (
-                    <TableRow {...headerGroup.getHeaderGroupProps()} className="header">
-                        {headerGroup.headers.map(column => (
-                            <TableCell {...column.getHeaderProps()} style={{color: 'white'}}>
-                                {column.render('Header')}
-                            </TableCell>
-                        ))}
-                    </TableRow>
-                ))}
-            </TableHead>
-            <TableBody>
-                {rows.map((row, i) => {
-                    prepareRow(row)
-                    return (
-                        <TableRow {...row.getRowProps()}>
-                            {row.cells.map(cell => {
-                                return (
-                                    <TableCell {...cell.getCellProps()} className="cell">
-                                        {cell.render('Cell')}
-                                    </TableCell>
-                                )
-                            })}
-                        </TableRow>
-                    )
-                })}
-            </TableBody>
-        </MaUTable>
-    )
-}
+const useStyles = makeStyles({
+  table: {
+    width: '100%',
+    marginTop: '8%'
+  },
+});
+
+export const TableUI = ({ columns, data }) => {
+  const classes = useStyles();
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            {columns.map((col) => {
+              return <StyledTableCell align="right">{col}</StyledTableCell>;
+            })}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row) => (
+            <StyledTableRow key={row.name}>
+              {Object.values(row).map((val) => {
+                return <StyledTableCell align="right">{val}</StyledTableCell>;
+              })}
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};

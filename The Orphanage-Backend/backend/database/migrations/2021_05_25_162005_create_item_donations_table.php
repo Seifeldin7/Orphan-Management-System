@@ -16,6 +16,7 @@ class CreateItemDonationsTable extends Migration
         Schema::create('item_donations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('org_id');
             $table->string('scheduled_date');
             $table->string('type');
             $table->bigInteger('delivery_method');

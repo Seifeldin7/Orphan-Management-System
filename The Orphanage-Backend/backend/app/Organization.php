@@ -22,4 +22,14 @@ class Organization extends Model
         'street',
         'governorate'
     ];
+
+    public function moneyDonations()
+    {
+      return $this->hasMany(MoneyDonation::class);
+    }
+
+    public function itemDonations()
+    {
+      return $this->hasMany(ItemDonation::class);
+    }
 }

@@ -1,75 +1,63 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import "./DonationHistory.css";
-import { Table } from '../../components/Table/Table';
-import makeData from './makeData';
+import { TableUI as Table } from "../../components/Table/Table";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import * as actions from '../../store/actions/index';
-import { connect } from 'react-redux';
+import * as actions from "../../store/actions/index";
+import { connect } from "react-redux";
 
 class DonationHistory extends Component {
-    // const data = React.useMemo(() => makeData(20), [])
-    // console.log(data)
-    // const columns = React.useMemo(
-    //     () => [
-    //         {
-    //             Header: 'Donation History',
-    //             columns: [
-    //                 {
-    //                     Header: 'First Name',
-    //                     accessor: 'firstName',
-    //                 },
-    //                 {
-    //                     Header: 'Last Name',
-    //                     accessor: 'lastName',
-    //                 },
-    //                 {
-    //                     Header: 'Age',
-    //                     accessor: 'age',
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    //     []
-    // )
-    componentDidMount() {
-        this.props.onShowMoneyDonations();
-    }
-    // useEffect(() => {
-    //     props.onShowMoneyDonations();
-    // }, [])
-    render() {
-        return (
-            <React.Fragment>
-                <Sidebar
-                    data-testid="sidebar"
-                />
-                <Container className="tabs-contain">
-                    <Row style={{ height: '2vh' }}></Row>
-                    <Row>
-                        <Col sm={{ span: 10, offset: 3 }}>
-                            {/* <Table columns={columns} data={data} /> */}
-                        </Col>
-                    </Row>
+  componentDidMount() {
+    this.props.onShowMoneyDonations();
+  }
 
-                </Container>
-            </React.Fragment>
+  render() {
+    return (
+      <React.Fragment>
+        <Container fluid>
+          <Row>
+            <Col xs= {3} md={0}>
+              <Sidebar data-testid="sidebar" />
+            </Col>
 
-        );
-    }
-
+            <Col xs= {12} md={9}>
+              <Table
+                columns={["name", "type", "age", "amount"]}
+                data={[
+                  {
+                    name: "EDU",
+                    type: "EDUcation",
+                    age: "12",
+                    amount: 112,
+                  },
+                  {
+                    name: "EDU2",
+                    type: "EDU",
+                    age: "12",
+                    amount: 112,
+                  },
+                ]}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </React.Fragment>
+    );
+  }
 }
 
-const mapStateToProps = state => {
-    return {
-
-    };
+const mapStateToProps = (state) => {
+  return {
+    itemDonations: state.itemDonations.donations,
+    moneyDonations: state.moneyDonations.donations,
+  };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onShowMoneyDonations: () => dispatch(actions.showMoneyDonations())
-    };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onShowMoneyDonations: () => dispatch(actions.showMoneyDonations()),
+    onShowItemDonations: () => dispatch(actions.showItemDonations()),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DonationHistory);

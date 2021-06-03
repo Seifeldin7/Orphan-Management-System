@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Organization;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MoneyDonationResource extends JsonResource
@@ -19,7 +20,7 @@ class MoneyDonationResource extends JsonResource
             'amount' => $this->amount,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
-            'user' => $this->user,
+            'organization' => Organization::find($this->org_id)->name
         ];
     }
 }
