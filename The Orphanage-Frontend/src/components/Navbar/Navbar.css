@@ -23,6 +23,7 @@
   transition: all 0.4s linear;
   border-radius: 80px !important;
   border-radius: 0.85rem;
+  background-color: #03bd66;
 }
 .oud-btn:hover {
   border: 2px solid #ffffff;
@@ -37,12 +38,21 @@
   color: #000;
   padding: 6px 20px;
   height: 40px;
-  margin-right: 3px;
+  margin-left: 1em;
   line-height: 40px;
   width: 290px;
   border: 0;
   border-radius: 500px;
   outline: none;
+  
+}
+.search-sm {
+  height: 40px;
+  line-height: 40px;
+  color: #000;
+  padding: 6px 20px;
+  border: 0;
+  background-color: #fff;
 }
 input.empty {
   font-size: 18px;
@@ -77,6 +87,11 @@ input.empty {
 .login-signup-btn:hover a {
   color: #f0a91a;
 }
+@media (min-width: 993px) {
+  .search-sm {
+    display: none;
+  }
+}
 @media (max-width: 480px) {
   .dropdown-me {
     left: 5px !important;
@@ -84,9 +99,7 @@ input.empty {
   }
 
   .search-input {
-    width: 100%;
-    margin-top: -50px;
-    margin-bottom: 10px;
+    width: 80%;
   }
 
   .form-inline {

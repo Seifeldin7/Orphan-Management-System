@@ -70,19 +70,6 @@ export class AfterLogin extends Component {
             Logout
           </button>
         </Link>
-        <Link
-          to="/profile"
-          className="signup-signin-link upgrade"
-          data-testid="upgrade-link"
-        >
-          <button
-            className="btn oud-btn my-2 my-sm-0 mr-3 upgrade"
-            type="submit"
-            data-testid="upgrade-btn"
-          >
-            Profile
-          </button>
-        </Link>
       </form>
     );
   }

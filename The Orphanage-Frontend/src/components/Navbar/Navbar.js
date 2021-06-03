@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import "./Navbar.css";
 import { Link, withRouter } from "react-router-dom";
-import { BeforeLogin } from "./BeforeLogin/BeforeLogin"
-import { AfterLogin } from "./AfterLogin/AfterLogin"
-import { config } from "./../../utils/auth"
-import { base } from "./../../config/environment"
-import axios from "axios"
-import logoIcon from '../../assets/logo.png';
+import { BeforeLogin } from "./BeforeLogin/BeforeLogin";
+import { AfterLogin } from "./AfterLogin/AfterLogin";
+import { config } from "./../../utils/auth";
+import { base } from "./../../config/environment";
+import axios from "axios";
+import logoIcon from "../../assets/logo.png";
 class Navbar extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-
       isLoggedIn: this.props.isLoggedIn,
       userInfo: {},
       _id: "",
@@ -21,42 +19,39 @@ class Navbar extends Component {
       displayName: "",
       credit: 0,
       images: [],
-      timeOut: 0
+      timeOut: 0,
+    };
+  }
+
+  handleClickOnSearch = () => {
+    this.props.history.replace(`/`);
+  };
+
+  handleEnter= (event) => {
+    if (event.key === 'Enter') {
+      console.log(event.target.value)
     }
   }
 
-
-  handleClickOnSearch = (newRoute) => {
-    this.props.history.replace(`/${newRoute}`);
-  }
-
-  handleStoringUserInfo = ({ _id, username, email, displayName, credit, images }) => {
+  handleStoringUserInfo = ({
+    _id,
+    username,
+    email,
+    displayName,
+    credit,
+    images,
+  }) => {
     const userInfo = { _id, username, email, displayName, credit, images };
-    this.setState({ userInfo, _id, username, email, displayName, credit, images });
-  }
-  /**
-   * A function to handle going back to last route we were used
-   * 
-   * @function
-   * 
-   * @returns {void} returns nothing, it just handle changing the routes to last one back
-   * 
-   */
-  handleGoBack = () => {
-    this.props.history.goBack();
-  }
-
-  /**
-   * A function to handle going forward to the last route we were used
-   * 
-   * @function
-   * 
-   * @returns {void } returns nothing, it just handle changing the routes to last one forward
-   */
-  handleGoForward = () => {
-    this.props.history.goForward();
-  }
-
+    this.setState({
+      userInfo,
+      _id,
+      username,
+      email,
+      displayName,
+      credit,
+      images,
+    });
+  };
 
   render() {
     return (
@@ -65,7 +60,6 @@ class Navbar extends Component {
           className="navbar navbar-expand-lg  fixed-top oud-nav"
           data-testid="home-nav"
         >
-
           <button
             className="navbar-toggler"
             type="button"
@@ -75,19 +69,16 @@ class Navbar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
             data-testid="toggle-btn"
-
           >
             <span className="navbar-toggler-icon toggler">
-              <i className="fas fa-bars" style={{ color: '#fff', fontSsize: 28 }}></i>
+              <i
+                className="fas fa-bars"
+                style={{ color: "#fff", fontSsize: 28 }}
+              ></i>
             </span>
           </button>
-          <div
-            className="collapse navbar-collapse"
-          >
-            <Link
-              to="/"
-              className="upgrade"
-            >
+          <div className="collapse navbar-collapse">
+            <Link to="/" className="upgrade">
               <ul className="navbar-nav mr-auto home">
                 <img
                   src={logoIcon}
@@ -99,6 +90,24 @@ class Navbar extends Component {
                 <span className="navbar-nav ml-auto">Home</span>
               </ul>
             </Link>
+
+            <input
+              type="search"
+              className="search-input empty"
+              id="iconified"
+              ref={(input) => {
+                this.nameInput = input;
+              }}
+              placeholder="&#xF002; Search for Organizations"
+              aria-label="Search"
+              onClick={() => this.handleClickOnSearch()}
+              onChange={this.props.handleInput}
+              data-testid="search-input"
+              value={this.props.value}
+              autoComplete="on"
+              onKeyUp={this.props.onKeyUp}
+              onKeyDown={(event) => this.handleEnter(event)}
+            />
           </div>
           <div
             className="collapse navbar-collapse login-signup"
@@ -107,18 +116,35 @@ class Navbar extends Component {
           >
             <ul className="navbar-nav mr-auto"></ul>
             <ul className="navbar-nav mr-auto"></ul>
-            {
-              (this.state.isLoggedIn) ?
-                <AfterLogin data-testid="right-after-login" /> :
-                <BeforeLogin data-testid="right-before-login" />
-            }
+            {this.state.isLoggedIn ? (
+              <React.Fragment>
+                <input
+                  type="search"
+                  className="oud-btn my-2 my-sm-0 mr-3 search-sm"
+                  id="iconified"
+                  ref={(input) => {
+                    this.nameInput = input;
+                  }}
+                  placeholder="&#xF002; Search for Organizations"
+                  aria-label="Search"
+                  onClick={() => this.handleClickOnSearch()}
+                  onChange={this.props.handleInput}
+                  data-testid="search-input"
+                  value={this.props.value}
+                  autoComplete="on"
+                  onKeyUp={this.props.onKeyUp}
+                  onKeyDown={(event) => this.handleEnter(event)}
+                />
+                <AfterLogin data-testid="right-after-login" />
+              </React.Fragment>
+            ) : (
+              <BeforeLogin data-testid="right-before-login" />
+            )}
           </div>
         </nav>
-      </div >
+      </div>
     );
   }
 }
 
-
 export default withRouter(Navbar);
-

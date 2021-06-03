@@ -14,7 +14,7 @@ class OrganizationController {
             case 'GET':
                 $organizationsRepo = new OrganizationRepository();
                 $organizations = $organizationsRepo->getAll();
-                echo $organizations;
+                echo json_encode($organizations);
                 break;
             default:
                 return array('status' => 405);

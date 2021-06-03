@@ -14,7 +14,8 @@ export const showOrganizations = () => {
         dispatch
     ) => {
         try {
-            const organizations = await Requester.getRequest('/api/organization');
+            const organizations = await Requester.getRequest('/organization');
+            console.log(organizations.data)
             dispatch( getOrganizations(organizations.data) );
         } catch (errMsg) {
             console.log(`${errMsg}`);

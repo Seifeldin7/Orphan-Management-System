@@ -5,8 +5,8 @@ import "./Sidebar.css";
 const adminSidebarElements = [
   {
     route: "/",
-    iconClasses: "fa fa-home mr-3 icon-sz sidebar-icons",
-    name: "Home"
+    iconClasses: "fa fa-user mr-3 icon-sz sidebar-icons",
+    name: "Users"
   },
   {
     route: "/donations",
@@ -14,14 +14,9 @@ const adminSidebarElements = [
     name: "Donations"
   },
   {
-    route: "/orphans",
-    iconClasses: "fas fa-child mr-3 fa-lg sidebar-icons",
-    name: "Orphans"
-  },
-  {
-    route: "/inventory",
+    route: "/items",
     iconClasses: "fas fa-warehouse mr-3 fa-lg sidebar-icons",
-    name: "Inventory"
+    name: "items"
   },
 ];
 const donorSidebarElements = [

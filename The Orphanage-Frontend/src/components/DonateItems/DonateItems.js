@@ -69,8 +69,7 @@ class DonateItems extends Component {
       items: this.getSelectedItems(),
       delivery_method: this.state.deliveryMethod,
     };
-    console.log(body)
-    //this.props.onDonateItems(body);
+    this.props.onDonateItems(body);
   };
 
   amountInputHandler = (event, itemNo) => {

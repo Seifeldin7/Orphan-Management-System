@@ -20,6 +20,6 @@ class OrganizationRepository
         while ($row = mysqli_fetch_assoc($result)) {
             $json_array[] = $row;
         }
-        return json_encode($json_array);
+        return $json_array;
     }
 }
