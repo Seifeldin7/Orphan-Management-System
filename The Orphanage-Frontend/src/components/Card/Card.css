@@ -1,15 +1,15 @@
 .card {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-actions {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .card-btn {
-    color: #03bd66;
+  color: #03bd66;
 }
 
 .card-btn:hover {
-    color: gold;
+  color: gold;
 }

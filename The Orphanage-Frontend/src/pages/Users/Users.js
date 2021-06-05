@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Items.css";
+import "./Users.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { base } from "./../../config/environment";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 
-class Items extends Component {
+class Users extends Component {
 
   constructor(props) {
     super(props);
@@ -19,6 +19,7 @@ class Items extends Component {
     };
   }
   componentDidMount() {
+    this.props.onShowOrganizations();
   }
   render() {
     return (
@@ -38,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Items);
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

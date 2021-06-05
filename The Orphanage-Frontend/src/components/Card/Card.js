@@ -5,7 +5,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import HappyImage from "../../assets/happy.jpg";
 import { Col, Row } from "react-bootstrap";
 import { CardActionArea, CardActions } from "@material-ui/core";
 import { Link } from "react-router-dom";

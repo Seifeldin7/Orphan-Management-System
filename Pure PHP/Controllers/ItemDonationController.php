@@ -16,15 +16,13 @@ class ItemDonationController
 
         switch ($method) {
             case 'GET':
+                $itemDonationsRepo = new ItemDonationRepository();
                 if ($user_id) {
-                    $itemDonationsRepo = new ItemDonationRepository();
                     $itemDonations = $itemDonationsRepo->getByUserId($user_id);
-                    echo json_encode($itemDonations);
                 } else {
-                    $itemDonationsRepo = new ItemDonationRepository();
                     $itemDonations = $itemDonationsRepo->getAll();
-                    echo json_encode($itemDonations);
                 }
+                echo json_encode($itemDonations);
                 break;
             default:
                 return array('status' => 405);
