@@ -4,7 +4,7 @@ import "./Sidebar.css";
 
 const adminSidebarElements = [
   {
-    route: "/",
+    route: "/users",
     iconClasses: "fa fa-user mr-3 icon-sz sidebar-icons",
     name: "Users"
   },

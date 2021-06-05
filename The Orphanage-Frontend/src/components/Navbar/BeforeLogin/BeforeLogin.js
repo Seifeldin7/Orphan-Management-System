@@ -17,7 +17,7 @@ function BeforeLogin(props) {
             data-testid="before-login"
         >
             <Link
-                to="/signin"
+                to="/login"
                 className="signup-signin-link"
                 data-testid="login-link"
             >

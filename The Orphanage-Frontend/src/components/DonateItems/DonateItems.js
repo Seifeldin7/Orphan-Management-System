@@ -80,7 +80,7 @@ class DonateItems extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{marginBottom: 100}}>
         <div className="container">
           {this.state.donationItems.map((item, index) => {
             return (

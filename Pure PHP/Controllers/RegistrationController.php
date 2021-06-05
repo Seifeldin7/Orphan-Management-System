@@ -32,7 +32,8 @@ class RegistrationController
                 $jwt = new JwtUtils();
                 $token = $jwt->generateToken($userId);
                 $userRepo->setToken($userId, $token);
-                echo $token;
+                $response = array('token' => $token, 'userId' => $userId);
+                echo json_encode($response);
                 break;
             default:
                 return array('status' => 405);

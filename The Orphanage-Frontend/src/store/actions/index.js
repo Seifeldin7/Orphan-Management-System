@@ -9,3 +9,13 @@ export {
 export {
     showOrganizations
 } from './organization';
+export {
+    deleteUser,
+    fetchUsers
+} from './user';
+export {
+    deleteItem,
+    fetchItems,
+    updateItem,
+    addItem
+} from './item';

@@ -5,3 +5,8 @@
 .header {
     background-color: #03bd66;
 }
+
+.delete-icons {
+    color: red;
+    cursor: pointer;
+}

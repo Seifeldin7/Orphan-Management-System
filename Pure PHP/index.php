@@ -2,6 +2,8 @@
 require_once(__DIR__ . '/Controllers/OrganizationController.php');
 require_once(__DIR__ . '/Controllers/ItemDonationController.php');
 require_once(__DIR__ . '/Controllers/RegistrationController.php');
+require_once(__DIR__ . '/Controllers/UserController.php');
+require_once(__DIR__ . '/Controllers/ItemController.php');
 
 require_once(__DIR__ . '/connection/connection.class.php');
 
@@ -49,6 +51,14 @@ if (count($route) <= 2) {
 		case 'login':
 			$loginController = new LoginController();
 			$loginController->verifyMethod($method, $route);
+			break;
+		case 'user':
+			$userController = new UserController();
+			$userController->verifyMethod($method, $route);
+			break;
+		case 'item':
+			$itemController = new ItemController();
+			$itemController->verifyMethod($method, $route);
 			break;
 		default:
 			$arr_json = array('status' => 404);

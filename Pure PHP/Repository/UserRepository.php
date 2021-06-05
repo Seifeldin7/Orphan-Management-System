@@ -15,7 +15,7 @@ class UserRepository
     function getAll()
     {
         $json_array = [];
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT id, name, phone_number, national_id, email FROM users";
         $result = mysqli_query($this->conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
             $json_array[] = $row;
@@ -57,6 +57,16 @@ class UserRepository
     function setToken($userId, $token)
     {
         $sql = "UPDATE users SET token= '$token' WHERE id= '$userId'";
+        $result = mysqli_query($this->conn, $sql);
+        if (!$result) {
+            return false;
+        }
+        return true;
+    }
+
+    function deleteUserById($id)
+    {
+        $sql = "DELETE FROM users WHERE id= '$id'";
         $result = mysqli_query($this->conn, $sql);
         if (!$result) {
             return false;

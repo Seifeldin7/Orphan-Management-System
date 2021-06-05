@@ -5,21 +5,13 @@ import { BeforeLogin } from "./BeforeLogin/BeforeLogin";
 import { AfterLogin } from "./AfterLogin/AfterLogin";
 import { config } from "./../../utils/auth";
 import { base } from "./../../config/environment";
-import axios from "axios";
 import logoIcon from "../../assets/logo.png";
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: this.props.isLoggedIn,
-      userInfo: {},
-      _id: "",
-      username: "",
-      email: "",
-      displayName: "",
-      credit: 0,
-      images: [],
-      timeOut: 0,
     };
   }
 
@@ -27,32 +19,11 @@ class Navbar extends Component {
     this.props.history.replace(`/`);
   };
 
-  handleEnter= (event) => {
-    if (event.key === 'Enter') {
-      console.log(event.target.value)
+  handleEnter = (event) => {
+    if (event.key === "Enter") {
+      console.log(event.target.value);
     }
-  }
-
-  handleStoringUserInfo = ({
-    _id,
-    username,
-    email,
-    displayName,
-    credit,
-    images,
-  }) => {
-    const userInfo = { _id, username, email, displayName, credit, images };
-    this.setState({
-      userInfo,
-      _id,
-      username,
-      email,
-      displayName,
-      credit,
-      images,
-    });
   };
-
   render() {
     return (
       <div>
@@ -90,24 +61,25 @@ class Navbar extends Component {
                 <span className="navbar-nav ml-auto">Home</span>
               </ul>
             </Link>
-
-            <input
-              type="search"
-              className="search-input empty"
-              id="iconified"
-              ref={(input) => {
-                this.nameInput = input;
-              }}
-              placeholder="&#xF002; Search for Organizations"
-              aria-label="Search"
-              onClick={() => this.handleClickOnSearch()}
-              onChange={this.props.handleInput}
-              data-testid="search-input"
-              value={this.props.value}
-              autoComplete="on"
-              onKeyUp={this.props.onKeyUp}
-              onKeyDown={(event) => this.handleEnter(event)}
-            />
+            {this.state.isLoggedIn ? (
+              <input
+                type="search"
+                className="search-input empty"
+                id="iconified"
+                ref={(input) => {
+                  this.nameInput = input;
+                }}
+                placeholder="&#xF002; Search for Organizations"
+                aria-label="Search"
+                onClick={() => this.handleClickOnSearch()}
+                onChange={this.props.handleInput}
+                data-testid="search-input"
+                value={this.props.value}
+                autoComplete="on"
+                onKeyUp={this.props.onKeyUp}
+                onKeyDown={(event) => this.handleEnter(event)}
+              />
+            ) : null}
           </div>
           <div
             className="collapse navbar-collapse login-signup"

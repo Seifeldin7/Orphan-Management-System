@@ -1,8 +1,11 @@
 import axios from "axios";
 import { isLoggedIn } from "./../utils/auth";
 import { baseUrl } from "../config/environment";
+import qs from 'querystring'
+
 const config = {
   headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
     authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjA0NDQ2NSwiZXhwIjoxNjIyMDQ4MDY1LCJuYmYiOjE2MjIwNDQ0NjUsImp0aSI6Imw2aldyZ2ZmOHZPT3NRRkMiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.kROm9QrfqChxKjFZ3CJv3xu8ziAH8zTj3N1znGJ9m5M`,
     "Access-Control-Allow-Origin": "*"
   }
@@ -41,7 +44,7 @@ const putRequest = (endpoint, body = {}) => {
  */
 const postRequest = (endpoint, body = {}) => {
   let fullUrl = "http://localhost:8000" + endpoint;
-  return axios.post(fullUrl, body, config);
+  return axios.post(fullUrl, qs.stringify(body), config);
 };
 /**
  * Axios PATCH request

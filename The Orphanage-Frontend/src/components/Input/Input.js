@@ -11,7 +11,7 @@ class Input extends Component {
     render() {
         return (
             <div className="input-group mb-3 input-display">
-                <label for="exampleFormControlInput1" class="form-label">{this.props.label}</label>
+                <label for="exampleFormControlInput1" className="form-label">{this.props.label}</label>
                 <input
                     name={this.props.name}
                     type={this.props.type}

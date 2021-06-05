@@ -3,7 +3,7 @@ import { getRequest } from "./requester";
 import { baseUrl } from "./../config/environment";
 
 function getToken() {
-  return localStorage.getItem("accessToken");
+  return localStorage.getItem("token");
 }
 
 const config = {

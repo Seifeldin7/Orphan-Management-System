@@ -10,12 +10,11 @@ import Paper from "@material-ui/core/Paper";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: '#03BD66',
+    backgroundColor: "#03BD66",
     color: theme.palette.common.white,
   },
   body: {
     fontSize: 14,
-    
   },
 }))(TableCell);
 
@@ -29,12 +28,12 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    width: '100%',
-    marginTop: '8%'
+    width: "100%",
+    marginTop: "8%",
   },
 });
 
-export const TableUI = ({ columns, data }) => {
+export const TableUI = ({ columns, data, deleteElement }) => {
   const classes = useStyles();
   return (
     <TableContainer component={Paper}>
@@ -52,6 +51,9 @@ export const TableUI = ({ columns, data }) => {
               {Object.values(row).map((val) => {
                 return <StyledTableCell align="right">{val}</StyledTableCell>;
               })}
+              <StyledTableCell align="right" onClick={(id) => deleteElement(row.id)}>
+                <i className="fa fa-trash fa-lg delete-icons"></i>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

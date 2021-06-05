@@ -30,7 +30,7 @@ class LoginController
                 $jwt = new JwtUtils();
                 $token = $jwt->generateToken($userId);
                 $this->userRepo->setToken($userId, $token);
-                echo $token;
+                echo array('token' => $token, 'userId' => $userId);
                 break;
             default:
                 return array('status' => 405);

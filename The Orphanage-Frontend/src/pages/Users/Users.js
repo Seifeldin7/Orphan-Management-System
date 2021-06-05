@@ -1,29 +1,38 @@
 import React, { Component } from "react";
 import "./Users.css";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import { base } from "./../../config/environment";
-import axios from "axios";
-import { config, isLoggedIn } from "./../../utils/auth";
-import Card from "../../components/Card/Card";
-import Modal from "../../components/Modal/Modal";
+import { TableUI as Table } from "../../components/Table/Table";
 import { Col, Container, Row } from "react-bootstrap";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 
 class Users extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      openModal: false,
-    };
+    this.state = {};
   }
   componentDidMount() {
-    this.props.onShowOrganizations();
+    this.props.onFetchUsers();
   }
+  deleteUserById = (id) => {
+    this.props.onDeleteUser(id);
+  };
   render() {
     return (
       <Container fluid>
+        <Row>
+          <Col xs={3} md={0}>
+            <Sidebar data-testid="sidebar" />
+          </Col>
+
+          <Col xs={12} md={9}>
+            <Table
+              columns={["ID", "Name", "Phone", "National ID", "Email", ""]}
+              data={this.props.users}
+              deleteElement = {(id) => this.deleteUserById(id)}
+            />
+          </Col>
+        </Row>
       </Container>
     );
   }
@@ -31,11 +40,14 @@ class Users extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    users: state.users.users,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onFetchUsers: () => dispatch(actions.fetchUsers()),
+    onDeleteUser: (id) => dispatch(actions.deleteUser(id)),
   };
 };
 
