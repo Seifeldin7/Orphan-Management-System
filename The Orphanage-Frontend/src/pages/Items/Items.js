@@ -16,7 +16,7 @@ class Items extends Component {
       name: "",
       imageUrl: "",
       openModal: false,
-      selectedItemId: 0
+      selectedItemId: 0,
     };
   }
 
@@ -35,21 +35,28 @@ class Items extends Component {
             {this.props.items.map((item, index) => {
               return (
                 <div
-                  className="item"
+                  className="items"
                   key={item.id}
-                  onClick={() => this.setState({ openModal: true })}
+                  onClick={() =>
+                    this.setState({ openModal: true, selectedItemId: item.id })
+                  }
                 >
-                  <img
-                    src={item.image}
-                    alt="item"
-                    data-testid="oud-logo-img"
-                    className="item-image"
-                  />
-                  <p className="item-name">{item.name}</p>
+                  <div className="item">
+                    <img
+                      src={item.image}
+                      alt="item"
+                      data-testid="oud-logo-img"
+                      className="item-image"
+                    />
+                    <p className="item-name">{item.name}</p>
+                  </div>
                 </div>
               );
             })}
-            <h3>Add Item</h3>
+
+            <h3>
+              <strong>Add Item</strong>
+            </h3>
             <Form className="form-container">
               <Input
                 type="text"
@@ -64,14 +71,14 @@ class Items extends Component {
               <Row>
                 <Col>
                   <Button
-                    title="Add"
+                    title="Add Item"
                     style={{ minWidth: 100, marginBottom: 100 }}
-                    onClick={() =>
+                    onClick={() => {
                       this.props.onAddItem({
                         name: this.state.name,
                         image: this.state.imageUrl,
-                      })
-                    }
+                      });
+                    }}
                   />
                 </Col>
               </Row>
@@ -83,10 +90,11 @@ class Items extends Component {
             openModal={this.state.openModal}
             closeModal={() => this.setState({ openModal: false })}
           >
-            <UpdateItem 
-            itemId={this.state.selectedItemId}
-            deleteItem={this.props.onDeleteItem}
-            updateItem={this.props.onUpdatetem} />
+            <UpdateItem
+              itemId={this.state.selectedItemId}
+              deleteItem={(id) => this.props.onDeleteItem(id)}
+              updateItemFun={(id, body) => this.props.onUpdateItem(id, body)}
+            />
           </Modal>
         </div>
       </Container>

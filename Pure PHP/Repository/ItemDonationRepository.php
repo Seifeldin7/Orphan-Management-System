@@ -55,4 +55,33 @@ class ItemDonationRepository
         return $json_array;
     }
 
+    function createItemDonation(
+        $userId,
+        $org_id,
+        $delivery_method,
+        $scheduled_date,
+        $items
+    ) {
+        foreach ($items as $item) {
+            $sql = "INSERT INTO item_donations (userId, item_id, org_id, created_at) 
+            VALUES (?, ?, ?, ?)";
+            if ($stmt = mysqli_prepare($this->conn, $sql)) {
+                $created_at = date('Y/m/d H:i:s');
+                mysqli_stmt_bind_param($stmt, "iiis", $userId, $item->id, $org_id, $created_at);
+                $result = mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+            }
+            if ($result) {
+                $last_id = mysqli_insert_id($this->conn);
+                $sql = "INSERT INTO item_donations_details 
+                (amount, scheduled_date, delivery_method, item_donation_id) 
+                VALUES (?, ?, ?, ?)";
+                if ($stmt = mysqli_prepare($this->conn, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "isii", $item->amount, $scheduled_date, $delivery_method, $last_id);
+                    $result = mysqli_stmt_execute($stmt);
+                    mysqli_stmt_close($stmt);
+                }
+            }
+        }
+    }
 }

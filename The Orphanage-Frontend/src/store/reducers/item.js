@@ -14,12 +14,15 @@ const updateItemFail = (state, action) => {
 };
 
 const updateItemSuccess = (state, action) => {
+  
   let newItems = [...state.items];
-  for (let i = 0; i < newItems.length(); ++i) {
+  for (let i = 0; i < newItems.length; ++i) {
     if (newItems[i].id === action.id) {
-      newItems[i] = action.itemData;
+      newItems[i].name = action.itemData.name;
+      newItems[i].image = action.itemData.image;
     }
   }
+
   return updateObject(state, {
     items: newItems,
     showSuccessAlert: true,
@@ -38,7 +41,7 @@ const deleteItemFail = (state, action) => {
 const deleteItemSuccess = (state, action) => {
   let fliteredItems = state.items.filter((item) => item.id !== action.id);
   return updateObject(state, {
-    item: fliteredItems,
+    items: fliteredItems,
     showSuccessAlert: true,
   });
 };

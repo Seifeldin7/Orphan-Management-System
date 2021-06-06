@@ -33,7 +33,7 @@ const deleteRequest = endpoint => {
  */
 const putRequest = (endpoint, body = {}) => {
   let fullUrl = baseUrl + endpoint;
-  return axios.put(fullUrl, body, config);
+  return axios.put(fullUrl, qs.stringify(body), config);
 };
 /**
  * Axios POST request

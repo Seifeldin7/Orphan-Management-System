@@ -30,16 +30,16 @@ const UpdateItem = (props) => {
               title="Update Item"
               style={{ minWidth: 100, marginTop: 2, marginRight: 5 }}
               onClick={() =>
-                props.updateItem(props.itemId, {
+               { props.updateItemFun(props.itemId, {
                   name: name,
                   image: image,
-                })
+                })}
               }
             />
             <Button
               title="Delete Item"
               style={{ minWidth: 100, backgroundColor: "red", marginTop: 2 }}
-              onClick={() => props.deleteItem(props.itemId)}
+              onClick={(id) => {props.deleteItem(props.itemId)}}
             />
           </Col>
         </Row>

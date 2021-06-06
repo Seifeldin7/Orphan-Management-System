@@ -48,8 +48,8 @@ export const updateItem = (id, body) => {
     ) => {
         try {
             dispatch(updateItemStart());
-            const response = await Requester.postRequest(`/item?id=${id}`, body);
-            dispatch(updateItemSuccess(id, response.data));
+            const response = await Requester.putRequest(`/item?id=${id}`, body);
+            dispatch(updateItemSuccess(id, body));
         } catch (errMsg) {
             dispatch(updateItemFail());
         }
@@ -110,7 +110,12 @@ export const addItem = (body) => {
         try {
             dispatch(addItemStart());
             const response = await Requester.postRequest('/item', body);
-            dispatch(addItemSuccess(response.data));
+            let newItem = {
+                name: body.name,
+                image: body.image,
+                id: response.data
+            }
+            dispatch(addItemSuccess(newItem));
         } catch (errMsg) {
             dispatch(addItemFail());
         }
