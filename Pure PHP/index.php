@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . '/Controllers/OrganizationController.php');
 require_once(__DIR__ . '/Controllers/ItemDonationController.php');
+require_once(__DIR__ . '/Controllers/MoneyDonationController.php');
 require_once(__DIR__ . '/Controllers/RegistrationController.php');
 require_once(__DIR__ . '/Controllers/UserController.php');
 require_once(__DIR__ . '/Controllers/ItemController.php');
@@ -43,6 +44,10 @@ if (count($route) <= 2) {
 		case 'item-donation':
 			$itemDonationController = new ItemDonationController();
 			$itemDonationController->verifyMethod($method, $route);
+			break;
+		case 'money-donation':
+			$moneyDonationController = new MoneyDonationController();
+			$moneyDonationController->verifyMethod($method, $route);
 			break;
 		case 'register':
 			$registerController = new RegistrationController();

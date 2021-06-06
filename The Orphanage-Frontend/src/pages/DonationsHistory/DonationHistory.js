@@ -22,7 +22,7 @@ class DonationHistory extends Component {
 
             <Col xs= {12} md={9}>
               <Table
-                columns={["name", "type", "age", "amount"]}
+                columns={["name", "type", "age", "amount", ""]}
                 data={[
                   {
                     name: "EDU",

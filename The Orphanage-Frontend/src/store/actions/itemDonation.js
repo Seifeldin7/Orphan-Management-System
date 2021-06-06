@@ -6,7 +6,7 @@ export const showItemDonations = () => {
         dispatch
     ) => {
         try {
-            const donations = await Requester.getRequest('/api/item-donation');
+            const donations = await Requester.getRequest('/item-donation');
             console.log(donations);
         } catch (errMsg) {
             console.log(`${errMsg}`);
@@ -28,6 +28,7 @@ export const donateItemStart = () => {
 };
 
 export const donateItemSuccess = (donationData) => {
+    alert("Donation completed successfully");
     return {
         type: actionTypes.DONATE_ITEM_SUCCESS,
         donationData: donationData,
@@ -40,7 +41,7 @@ export const donateItem = (body) => {
     ) => {
         try {
             dispatch( donateItemStart() );
-            const response = await Requester.postRequest('/api/item-donation', body);
+            const response = await Requester.postRequest('/item-donation', body);
             dispatch( donateItemSuccess(response.data) );
         } catch (errMsg) {
             dispatch( donateItemFail() );

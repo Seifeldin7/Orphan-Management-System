@@ -21,7 +21,7 @@ class MoneyDonationController
                 $amount = $_POST["amount"];
                 $moneyDonationsRepo = new MoneyDonationRepository();
                 if ($user_id) {
-                    $moneyDonationsRepo->createMoneyDonation($user_id, $card_id, $amount, $$org_id);
+                    $moneyDonationsRepo->createMoneyDonation($user_id, $card_id, $amount, $org_id);
                 } 
                 break;
             default:

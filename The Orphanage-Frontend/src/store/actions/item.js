@@ -35,6 +35,7 @@ export const updateItemStart = () => {
 };
 
 export const updateItemSuccess = (id, itemData) => {
+    alert("Item updated successfully");
     return {
         type: actionTypes.UPDATE_ITEM_SUCCESS,
         itemData: itemData,
@@ -64,6 +65,7 @@ export const deleteItemFail = (error) => {
 }
 
 export const deleteItemSuccess = (id) => {
+    alert("Item deleted successfully");
     return {
         type: actionTypes.DELETE_ITEM_SUCCESS,
         id: id,
@@ -97,6 +99,7 @@ export const addItemStart = () => {
 };
 
 export const addItemSuccess = (itemData) => {
+    alert("Item added successfully");
     return {
         type: actionTypes.ADD_ITEM_SUCCESS,
         itemData: itemData,
