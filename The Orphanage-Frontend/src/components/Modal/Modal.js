@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Modal.css";
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Modal as ModalUI } from '@material-ui/core';
-import DonateMoney from "../DonateMoney/DonateMoney";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -12,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         height: '60%',
-        marginTop: '10%'
+        marginTop: '10%',
     },
 }));
 const Modal = (props) => {
@@ -26,7 +25,7 @@ const Modal = (props) => {
             className={classes.modal}
         >
             <div className="content">
-                <DonateMoney />
+                {props.children}
             </div>
         </ModalUI>
 

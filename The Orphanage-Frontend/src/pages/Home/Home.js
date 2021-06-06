@@ -9,6 +9,7 @@ import Modal from "../../components/Modal/Modal";
 import { Col, Container, Row } from "react-bootstrap";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
+import DonateMoney from "../../components/DonateMoney/DonateMoney";
 
 class Home extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ class Home extends Component {
           <Modal
             openModal={this.state.openModal}
             closeModal={() => this.setState({ openModal: false })}
-          />
+          >
+           <DonateMoney />
+          </Modal>
         </div>
       </Container>
     );

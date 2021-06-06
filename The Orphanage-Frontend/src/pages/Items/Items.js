@@ -7,6 +7,7 @@ import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import UpdateItem from "../../components/UpdateItem/UpdateItem";
 
 class Items extends Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class Items extends Component {
     this.state = {
       name: "",
       imageUrl: "",
+      openModal: false,
+      selectedItemId: 0
     };
   }
 
@@ -31,7 +34,11 @@ class Items extends Component {
           <Col md={{ span: 8, offset: 1 }} xs={12} className="home-margin">
             {this.props.items.map((item, index) => {
               return (
-                <div className="item" key={index}>
+                <div
+                  className="item"
+                  key={item.id}
+                  onClick={() => this.setState({ openModal: true })}
+                >
                   <img
                     src={item.image}
                     alt="item"
@@ -58,7 +65,7 @@ class Items extends Component {
                 <Col>
                   <Button
                     title="Add"
-                    style={{ minWidth: 100 }}
+                    style={{ minWidth: 100, marginBottom: 100 }}
                     onClick={() =>
                       this.props.onAddItem({
                         name: this.state.name,
@@ -71,6 +78,17 @@ class Items extends Component {
             </Form>
           </Col>
         </Row>
+        <div className="modal-container">
+          <Modal
+            openModal={this.state.openModal}
+            closeModal={() => this.setState({ openModal: false })}
+          >
+            <UpdateItem 
+            itemId={this.state.selectedItemId}
+            deleteItem={this.props.onDeleteItem}
+            updateItem={this.props.onUpdatetem} />
+          </Modal>
+        </div>
       </Container>
     );
   }
