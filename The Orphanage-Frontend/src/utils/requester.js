@@ -1,5 +1,4 @@
 import axios from "axios";
-import { isLoggedIn } from "./../utils/auth";
 import { baseUrl } from "../config/environment";
 import qs from 'querystring'
 
@@ -11,6 +10,8 @@ const config = {
   }
 };
 const getRequest = endpoint => {
+  let token = localStorage.getItem("token");
+  config.headers.authorization = `Bearer ${token}`;
   let fullUrl = baseUrl + endpoint;
   return axios.get(fullUrl, config);
 };
@@ -21,6 +22,8 @@ const getRequest = endpoint => {
  * @returns {object}
  */
 const deleteRequest = endpoint => {
+  let token = localStorage.getItem("token");
+  config.headers.authorization = `Bearer ${token}`;
   let fullUrl = baseUrl + endpoint;
   return axios.delete(fullUrl, config);
 };
@@ -32,6 +35,8 @@ const deleteRequest = endpoint => {
  * @returns {object}
  */
 const putRequest = (endpoint, body = {}) => {
+  let token = localStorage.getItem("token");
+  config.headers.authorization = `Bearer ${token}`;
   let fullUrl = baseUrl + endpoint;
   return axios.put(fullUrl, qs.stringify(body), config);
 };
@@ -43,6 +48,8 @@ const putRequest = (endpoint, body = {}) => {
  * @returns {object}
  */
 const postRequest = (endpoint, body = {}) => {
+  let token = localStorage.getItem("token");
+  config.headers.authorization = `Bearer ${token}`;
   let fullUrl = "http://localhost:8000" + endpoint;
   return axios.post(fullUrl, qs.stringify(body), config);
 };
@@ -54,6 +61,8 @@ const postRequest = (endpoint, body = {}) => {
  * @returns {object}
  */
 const patchRequest = (endpoint, body = {}) => {
+  let token = localStorage.getItem("token");
+  config.headers.authorization = `Bearer ${token}`;
   let fullUrl = baseUrl + endpoint;
   return axios.patch(fullUrl, body, config);
 };

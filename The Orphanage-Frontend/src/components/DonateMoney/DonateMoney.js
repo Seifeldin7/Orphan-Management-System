@@ -63,27 +63,29 @@ class DonateMoney extends Component {
             max="10000"
           ></input>
         </div>
-        <Container fluid>
-          <Row>
-            <label for="organizations">Choose an Organization:</label>
-            <select
-              className="form-control ml-2"
-              name="organizations"
-              id="organizations"
-              onChange={(e) =>
-                this.setState({ selectedOrganization: e.target.value })
-              }
-            >
-              {this.props.organizations.map((org) => {
-                return (
-                  <option key={org.id} value={org.id}>
-                    {org.name}
-                  </option>
-                );
-              })}
-            </select>
-          </Row>
-        </Container>
+        {this.props.showOrganizationInput ? (
+          <Container fluid>
+            <Row>
+              <label for="organizations">Choose an Organization:</label>
+              <select
+                className="form-control ml-2"
+                name="organizations"
+                id="organizations"
+                onChange={(e) =>
+                  this.setState({ selectedOrganization: e.target.value })
+                }
+              >
+                {this.props.organizations.map((org) => {
+                  return (
+                    <option key={org.id} value={org.id}>
+                      {org.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </Row>
+          </Container>
+        ) : null}
         <button className="donate-btn" onClick={() => this.onDonate()}>
           Donate
         </button>

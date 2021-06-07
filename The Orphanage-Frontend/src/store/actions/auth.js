@@ -17,6 +17,7 @@ export const authSuccess = (token, userId) => {
 };
 
 export const authFail = (error) => {
+  alert("Authentication failed, please check your credentials and try again");
   return {
     type: actionTypes.AUTH_FAIL,
     error: error,
@@ -49,12 +50,13 @@ export const auth = (authData, isSignup) => {
         url = "/login";
       }
       const response = await Requester.postRequest(url, authData);
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("userId", response.data.userId);
-      dispatch(authSuccess(response.data.token, response.data.userId));
+      if (response.data) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userId", response.data.userId);
+        dispatch(authSuccess(response.data.token, response.data.userId));
+      }
     } catch (err) {
       dispatch(authFail(err.response.data.error));
     }
   };
 };
-

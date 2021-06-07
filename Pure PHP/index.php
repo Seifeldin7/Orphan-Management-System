@@ -3,8 +3,10 @@ require_once(__DIR__ . '/Controllers/OrganizationController.php');
 require_once(__DIR__ . '/Controllers/ItemDonationController.php');
 require_once(__DIR__ . '/Controllers/MoneyDonationController.php');
 require_once(__DIR__ . '/Controllers/RegistrationController.php');
+require_once(__DIR__ . '/Controllers/LoginController.php');
 require_once(__DIR__ . '/Controllers/UserController.php');
 require_once(__DIR__ . '/Controllers/ItemController.php');
+require_once(__DIR__ . '/utils/jwt.php');
 
 require_once(__DIR__ . '/connection/connection.class.php');
 
@@ -63,6 +65,7 @@ if (count($route) <= 2) {
 			break;
 		case 'item':
 			$itemController = new ItemController();
+			verifyJwt();
 			$itemController->verifyMethod($method, $route);
 			break;
 		default:
@@ -71,4 +74,11 @@ if (count($route) <= 2) {
 	}
 } else {
 	$arr_json = array('status' => 404);
+}
+
+function verifyJwt()
+{
+	$jwt = new JwtUtils();
+	$token = $jwt->extractJwtToken();
+	return $jwt->validateToken($token);
 }

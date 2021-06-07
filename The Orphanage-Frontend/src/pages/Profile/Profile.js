@@ -30,31 +30,19 @@ class Profile extends Component {
               </TabList>
 
               <TabPanel>
-                <Container fluid>
-                  <Row>
-                    <Col xs={{span: 12, offset: 1}}>
-                      <Form className="form-container">
-                        <Input type="text" label="Name" />
-                        <Input type="text" label="Email" />
-                        <Input type="text" label="Phone" />
-                        <Input type="text" label="National Id" />
-                        <Row>
-                            <Col >
+                <Col xs={{ span: 12, offset: 1 }}>
+                  <Form className="form-container">
+                    <Input type="text" label="Name" />
+                    <Input type="text" label="Email" />
+                    <Input type="text" label="Phone" />
+                    <Input type="text" label="National Id" />
+                    <Row>
+                      <Col>
                         <Button title="Update" style={{ marginRight: 10 }} />
-                        <Button
-                          title="Cancel"
-                          style={{
-                            backgroundColor: "white",
-                            border: "1px solid green",
-                            color: "green",
-                          }}
-                        />
-                        </Col>
-                        </Row>
-                      </Form>
-                    </Col>
-                  </Row>
-                </Container>
+                      </Col>
+                    </Row>
+                  </Form>
+                </Col>
               </TabPanel>
               <TabPanel>
                 <PaymentDetails />

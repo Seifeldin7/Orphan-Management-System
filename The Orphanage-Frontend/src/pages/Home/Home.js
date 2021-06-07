@@ -48,7 +48,7 @@ class Home extends Component {
             openModal={this.state.openModal}
             closeModal={() => this.setState({ openModal: false })}
           >
-           <DonateMoney />
+           <DonateMoney showOrganizationInput={false}/>
           </Modal>
         </div>
       </Container>

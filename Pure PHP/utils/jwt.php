@@ -64,6 +64,7 @@ class JwtUtils
     function extractJwtToken()
     {
         preg_match('/Bearer\s(\S+)/', $_SERVER['HTTP_AUTHORIZATION'], $matches);
+        header('HTTP/1.0 400 Bad Request');
         return $matches[1];
     }
 

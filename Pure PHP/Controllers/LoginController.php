@@ -20,17 +20,15 @@ class LoginController
             case 'POST':
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-
-                if (!$this->validateCredentials($email, $password))
-                {
+                if (!$this->validateCredentials($email, $password)) {
                     return array('status' => 405);
                 }
-
                 $userId = $this->userRepo->findUserIdByEmail($email);
                 $jwt = new JwtUtils();
                 $token = $jwt->generateToken($userId);
                 $this->userRepo->setToken($userId, $token);
-                echo array('token' => $token, 'userId' => $userId);
+                $response = array('token' => $token, 'userId' => $userId);
+                echo json_encode($response);
                 break;
             default:
                 return array('status' => 405);
@@ -40,6 +38,14 @@ class LoginController
 
     function validateCredentials($email, $password)
     {
-
+        $user = $this->userRepo->findUserByEmail($email);
+        if (!$user) {
+            return false;
+        }
+        $result = password_verify($password, $user['password']);
+        if (!$result) {
+            return false;
+        }
+        return true;
     }
 }

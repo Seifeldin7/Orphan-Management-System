@@ -25,7 +25,7 @@ class Donate extends Component {
               <Tab className="tab-donate">Donate Items</Tab>
             </TabList>
             <TabPanel>
-              <DonateMoney />
+              <DonateMoney showOrganizationInput={true}/>
             </TabPanel>
             <TabPanel>
               <DonateItems />
