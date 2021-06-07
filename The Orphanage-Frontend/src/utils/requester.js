@@ -12,6 +12,7 @@ const config = {
 const getRequest = endpoint => {
   let token = localStorage.getItem("token");
   config.headers.authorization = `Bearer ${token}`;
+  console.log(config)
   let fullUrl = baseUrl + endpoint;
   return axios.get(fullUrl, config);
 };

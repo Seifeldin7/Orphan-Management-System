@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import foodImage from "../../assets/food.png";
-import furnImage from "../../assets/furniture.png";
-import clothesImage from "../../assets/clothes.png";
-import booksImage from "../../assets/books.png";
 import "./DonateItems.css";
 import { Form } from "react-bootstrap";
 import * as actions from "../../store/actions/index";
@@ -15,35 +11,19 @@ class DonateItems extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donationItems: [
-        {
-          icon: foodImage,
-          name: "Food",
-          selected: false,
-          amount: 0,
-        },
-        {
-          icon: clothesImage,
-          name: "Clothes",
-          selected: false,
-          amount: 0,
-        },
-        {
-          icon: furnImage,
-          name: "Furniture",
-          selected: false,
-          amount: 0,
-        },
-        {
-          icon: booksImage,
-          name: "Books",
-          selected: false,
-          amount: 0,
-        },
-      ],
+      donationItems: [],
       deliveryMethod: 0,
       scheduled_date: new Date(),
     };
+  }
+
+  async componentDidMount() {
+    await this.props.onFetchItems();
+    let items = this.props.items;
+    for (let i = 0; i < items.length; i++) {
+      items[i]["selected"] = false;
+    }
+    this.setState({ donationItems: items });
   }
 
   selectDeliveryMethod = (method) => {
@@ -55,9 +35,9 @@ class DonateItems extends Component {
     for (let item of this.state.donationItems) {
       if (item.selected) {
         selectedItems.push({
-            id: item.id,
-            amount: item.amount
-        })
+          id: item.id,
+          amount: item.amount,
+        });
       }
     }
     return selectedItems;
@@ -65,11 +45,12 @@ class DonateItems extends Component {
 
   onDonate = () => {
     let body = {
-      scheduled_date: this.state.scheduled_date,
-      items: this.getSelectedItems(),
+      scheduled_date: this.state.scheduled_date.toString(),
+      items: JSON.stringify(this.getSelectedItems()),
       delivery_method: this.state.deliveryMethod,
+      org_id: 1,
     };
-    this.props.onDonateItems(body);
+     this.props.onDonateItems(body);
   };
 
   amountInputHandler = (event, itemNo) => {
@@ -80,7 +61,7 @@ class DonateItems extends Component {
 
   render() {
     return (
-      <div style={{marginBottom: 100}}>
+      <div style={{ marginBottom: 100 }}>
         <div className="container">
           {this.state.donationItems.map((item, index) => {
             return (
@@ -92,7 +73,7 @@ class DonateItems extends Component {
                       !donationItems_new[index].selected;
                     this.setState({ donationItems: donationItems_new });
                   }}
-                  src={item.icon}
+                  src={item.image}
                   alt="item"
                   data-testid="oud-logo-img"
                   className={
@@ -153,7 +134,9 @@ class DonateItems extends Component {
         <div className="calender-con">
           <DatePicker
             selected={this.state.scheduled_date}
-            onChange={(date) => this.setState({ scheduled_date: date })}
+            onChange={(date) =>
+              this.setState({ scheduled_date: date})
+            }
             showTimeSelect
             dateFormat="Pp"
             className="calender"
@@ -170,12 +153,15 @@ class DonateItems extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    items: state.items.items,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onDonateItems: (body) => dispatch(actions.donateItem(body)),
+    onFetchItems: () => dispatch(actions.fetchItems()),
   };
 };
 

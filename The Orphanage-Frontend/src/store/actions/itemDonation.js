@@ -41,7 +41,9 @@ export const donateItem = (body) => {
     ) => {
         try {
             dispatch( donateItemStart() );
-            const response = await Requester.postRequest('/item-donation', body);
+            let userId = localStorage.getItem("userId");
+            const response = await Requester.postRequest(`/item-donation?user_id=${userId}`, body);
+            console.log(response)
             dispatch( donateItemSuccess(response.data) );
         } catch (errMsg) {
             dispatch( donateItemFail() );

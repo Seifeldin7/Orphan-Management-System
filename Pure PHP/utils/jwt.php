@@ -23,7 +23,7 @@ class JwtUtils
     {
         $tokenId    = base64_encode(random_bytes(16));
         $issuedAt   = new DateTimeImmutable();
-        $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();      // Add 60 seconds
+        $expire     = $issuedAt->modify('+50 minutes')->getTimestamp();      // Add 60 seconds
         $userId   = $userId;                                           // Retrieved from filtered POST data
 
         // Create the token as an array
@@ -64,7 +64,10 @@ class JwtUtils
     function extractJwtToken()
     {
         preg_match('/Bearer\s(\S+)/', $_SERVER['HTTP_AUTHORIZATION'], $matches);
-        header('HTTP/1.0 400 Bad Request');
+        $jwt = $matches[1];
+        if (!$jwt) {
+            header('HTTP/1.0 400 Bad Request');
+        }
         return $matches[1];
     }
 

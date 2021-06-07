@@ -26,7 +26,7 @@ class ItemDonationController
             case 'POST':
                 $delivery_method = $_POST["delivery_method"];
                 $scheduled_date = $_POST["scheduled_date"];
-                $items =  $_POST["items"];
+                $items = json_decode($_POST["items"]);
                 $org_id =  $_POST["org_id"];
                 if ($user_id) {
                     $itemDonationsRepo->createItemDonation(
