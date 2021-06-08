@@ -6,6 +6,8 @@ require_once(__DIR__ . '/Controllers/RegistrationController.php');
 require_once(__DIR__ . '/Controllers/LoginController.php');
 require_once(__DIR__ . '/Controllers/UserController.php');
 require_once(__DIR__ . '/Controllers/ItemController.php');
+require_once(__DIR__ . '/Controllers/RoleController.php');
+
 require_once(__DIR__ . '/utils/jwt.php');
 
 require_once(__DIR__ . '/connection/connection.class.php');
@@ -67,6 +69,11 @@ if (count($route) <= 2) {
 			$itemController = new ItemController();
 			verifyJwt();
 			$itemController->verifyMethod($method, $route);
+			break;
+		case 'me':
+			$roleController = new RoleController();
+			verifyJwt();
+			$roleController->verifyMethod($method, $route);
 			break;
 		default:
 			$arr_json = array('status' => 404);

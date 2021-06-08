@@ -31,6 +31,14 @@ class UserRepository
             $result = mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
         }
+        $last_id = mysqli_insert_id($this->conn);
+        $role = 'donor';
+        $sql = "INSERT INTO user_roles (role, user_id) VALUES (?, ?)";
+        if ($stmt = mysqli_prepare($this->conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $role, $last_id);
+            $result = mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
         return $result;
     }
 
@@ -72,5 +80,17 @@ class UserRepository
             return false;
         }
         return true;
+    }
+
+    function getRole($id) 
+    {
+        $sql = "SELECT role FROM user_roles 
+        WHERE user_id= '$id'";
+        $result = mysqli_query($this->conn, $sql);
+        if (!$result) {
+            return false;
+        }
+        $role = mysqli_fetch_assoc($result)["role"];
+        return $role;
     }
 }

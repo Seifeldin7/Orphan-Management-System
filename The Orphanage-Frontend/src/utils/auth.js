@@ -25,9 +25,11 @@ function isLoggedIn() {
 }
 
 function getRole() {
-  return getRequest(`${baseUrl}/me`)
+  let user_id = localStorage.getItem('userId');
+  return getRequest(`/me?id=${user_id}`)
     .then(response => {
-      return response.data.role;
+      console.log(response)
+      return response.data;
     })
     .catch(error => {
       console.log(error);

@@ -16,12 +16,12 @@ class Sidebar extends Component {
     super(props);
 
     this.state = {
-      role: "admin"
+      role: "donor"
     };
 
   }
   componentDidMount() {
-    //this.setRole();
+    this.setRole();
   }
 
   setRole = () => {
