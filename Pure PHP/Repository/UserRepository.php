@@ -93,4 +93,15 @@ class UserRepository
         $role = mysqli_fetch_assoc($result)["role"];
         return $role;
     }
+
+    function updateUserInfo($userId, $name, $phone, $nationalId)
+    {
+        $sql = "UPDATE users SET name= '$name', phone_number='$phone', national_id= '$nationalId'
+        WHERE id= '$userId'";
+        $result = mysqli_query($this->conn, $sql);
+        if (!$result) {
+            return false;
+        }
+        return true;
+    }
 }

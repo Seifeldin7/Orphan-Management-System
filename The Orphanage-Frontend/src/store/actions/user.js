@@ -47,3 +47,33 @@ export const deleteUser = (id) => {
         }
     };
 };
+
+export const updateUserFail = (error) => {
+    return {
+        type: actionTypes.UPDATE_USER_FAIL,
+        error: error
+    };
+}
+
+export const updateUserSuccess = (info) => {
+    alert("User updated successfully");
+    return {
+        type: actionTypes.UPDATE_USER_SUCCESS,
+        info: info
+    };
+};
+
+export const updateUser = (body) => {
+    return async (
+        dispatch
+    ) => {
+        try {
+            let id = localStorage.getItem("userId");
+            console.log(body)
+            const response = await Requester.postRequest(`/user?id=${id}`, body);
+            dispatch(updateUserSuccess(body));
+        } catch (errMsg) {
+            dispatch(updateUserFail());
+        }
+    };
+};

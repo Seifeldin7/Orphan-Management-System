@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Profile.css";
-import { config, isLoggedIn } from "./../../utils/auth";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import Input from "../../components/Input/Input";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -8,12 +7,29 @@ import PaymentDetails from "../../components/PaymentDetails/PaymentDetails";
 import LocationDetails from "../../components/LocationDetails/LocationDetails";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Button from "../../components/Button/Button";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: "",
+      phone: "",
+      national_id: "",
+      email: "",
+    };
   }
+
+  updateUserInfo = () => {
+    this.props.onUpdateUser({
+      name: this.state.name,
+      phone: this.state.phone,
+      national_id: this.state.national_id,
+      email: this.state.email,
+    });
+  };
+
   render() {
     return (
       <Container fluid>
@@ -32,13 +48,50 @@ class Profile extends Component {
               <TabPanel>
                 <Col xs={{ span: 12, offset: 1 }}>
                   <Form className="form-container">
-                    <Input type="text" label="Name" />
-                    <Input type="text" label="Email" />
-                    <Input type="text" label="Phone" />
-                    <Input type="text" label="National Id" />
+                    <Input
+                      type="text"
+                      label="Name"
+                      onChange={(event) =>
+                        this.setState({ name: event.target.value })
+                      }
+                    />
+                    <Input
+                      type="text"
+                      label="Email"
+                      onChange={(event) =>
+                        this.setState({ email: event.target.value })
+                      }
+                    />
+                    <Input
+                      type="text"
+                      label="Phone"
+                      onChange={(event) =>
+                        this.setState({ phone: event.target.value })
+                      }
+                    />
+                    <Input
+                      type="text"
+                      label="National Id"
+                      onChange={(event) =>
+                        this.setState({ national_id: event.target.value })
+                      }
+                    />
                     <Row>
                       <Col>
-                        <Button title="Update" style={{ marginRight: 10 }} />
+                        {/* <button
+                          type="button"
+                          style={{ marginBottom: 100 }}
+                          onClick={this.updateUserInfo}
+                        >
+                          Update
+                        </button> */}
+                        <Button
+                          title="Update"
+                          onClick={() => {
+                            this.updateUserInfo();
+                          }}
+                          style={{ marginBottom: 100 }}
+                        />
                       </Col>
                     </Row>
                   </Form>
@@ -58,4 +111,14 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onUpdateUser: (body) => dispatch(actions.updateUser(body)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

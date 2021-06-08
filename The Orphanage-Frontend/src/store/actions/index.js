@@ -11,7 +11,8 @@ export {
 } from './organization';
 export {
     deleteUser,
-    fetchUsers
+    fetchUsers,
+    updateUser
 } from './user';
 export {
     deleteItem,

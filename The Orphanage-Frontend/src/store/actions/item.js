@@ -49,7 +49,7 @@ export const updateItem = (id, body) => {
     ) => {
         try {
             dispatch(updateItemStart());
-            const response = await Requester.putRequest(`/item?id=${id}`, body);
+            const response = await Requester.postRequest(`/item?id=${id}`, body);
             dispatch(updateItemSuccess(id, body));
         } catch (errMsg) {
             dispatch(updateItemFail());

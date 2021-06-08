@@ -23,6 +23,21 @@ class UserController
             case 'DELETE':
                 $usersRepo->deleteUserById($_GET["id"]);
                 break;
+            case 'POST':
+                $name = $_POST['name'];
+                $phone = $_POST['phone'];
+                $nationalId = $_POST['national_id'];
+                if ($_GET["id"]) {
+                    $usersRepo->updateUserInfo($_GET["id"], $name, $phone, $nationalId);
+                }
+                break;
+            case 'PUT':
+                $putBody = file_get_contents('php://input', 'r');
+                $name = $putBody['name'];
+                $phone = $putBody['phone'];
+                $nationalId = $putBody['national_id'];
+                $usersRepo->updateUserInfo($_GET["id"], $name, $phone, $nationalId);
+                break;
             default:
                 return array('status' => 405);
                 break;

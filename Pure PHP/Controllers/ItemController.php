@@ -27,12 +27,16 @@ class ItemController
             case 'POST':
                 $name = $_POST['name'];
                 $image = $_POST['image'];
-                $itemRepo->createItem($name, $image);
-                $id = $itemRepo->findItemIdByName($name);
-                echo json_encode($id);
+                if ($_GET["id"]) {
+                    $itemRepo->updateItem($_GET["id"], $name, $image);
+                } else {
+                    $itemRepo->createItem($name, $image);
+                    $id = $itemRepo->findItemIdByName($name);
+                    echo json_encode($id);
+                }
                 break;
             case 'PUT':
-                $putBody = file_get_contents( 'php://input', 'r' );
+                parse_str(file_get_contents("php://input"), $putBody);
                 $name = $putBody['name'];
                 $image = $putBody['image'];
                 $itemRepo->updateItem($_GET["id"], $name, $image);
